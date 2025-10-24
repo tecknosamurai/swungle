@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Видео на весь экран</title>
+  <meta name="description" content="Полноэкранное зацикленное видео с кнопкой звука" />
+  <style>
+    /* Сброс и базовая раскладка */
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000;
+    }
+
+    /* Видео покрывает весь экран */
+    #bgvideo {
+      position: fixed;
+      inset: 0; /* top:0 right:0 bottom:0 left:0 */
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* обрезает под экран, без полос */
+      object-position: center;
+      background: #000;
+    }
+
+    /* Кнопка управления звуком */
+    .mute-btn {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      font: 500 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: background .2s ease;
+    }
+    .mute-btn:hover { background: rgba(0,0,0,0.75); }
+    .mute-btn:active { transform: translateY(1px); }
+
+    /* Иконка — простая SVG, чтобы не грузить шрифты */
+    .icon { width: 18px; height: 18px; display: inline-block; }
+
+    /* Фолбек-контент на случай, если видео не поддерживается */
+    .fallback {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font: 600 18px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial;
+      text-align: center;
+      padding: 20px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Замените background.mp4 на свой файл. Можно добавить атрибут poster="cover.jpg" для превью. -->
+  <video id="bgvideo" autoplay muted loop playsinline preload="auto">
+    <source src="background.mp4" type="video/mp4" />
+    <!-- Можно добавить WEBM для лучшей совместимости:
+    <source src="background.webm" type="video/webm" /> -->
+    Ваш браузер не поддерживает видео.
+  </video>
+
+  <button id="muteToggle" class="mute-btn" aria-pressed="true" aria-label="Включить/выключить звук">
+    <span class="icon" aria-hidden="true" id="icon"></span>
+    <span id="label">Звук выкл.</span>
+  </button>
+
+  <div class="fallback" id="fallback" hidden>
+    Нажмите, чтобы воспроизвести видео
+  </div>
+
+  <script>
+    const video = document.getElementById('bgvideo');
+    const btn = document.getElementById('muteToggle');
+    const label = document.getElementById('label');
+    const icon = document.getElementById('icon');
+    const fallback = document.getElementById('fallback');
+
+    // SVG-иконки (вставляем через innerHTML)
+    const ICON_MUTED = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.36-3.97v7.94A4.5 4.5 0 0 0 16.5 12zm-2.36-8.32a1 1 0 1 1 1.72-.96A10.5 10.5 0 0 1 20.5 12a10.5 10.5 0 0 1-4.64 9.28 1 1 0 0 1-1.08-1.68A8.5 8.5 0 0 0 18.5 12a8.5 8.5 0 0 0-4.36-7.32z"/></svg>';
+    const ICON_SOUND = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10v4h4l5 5V5L7 10H3zm10.5 2a4.5 4.5 0 0 0 4.5 4.5v-9a4.5 4.5 0 0 0-4.5 4.5zm2.5 0a2.5 2.5 0 0 1 2.5-2.5v5a2.5 2.5 0 0 1-2.5-2.5z"/></svg>';
+
+    function updateUI() {
+      const isMuted = video.muted;
+      icon.innerHTML = isMuted ? ICON_MUTED : ICON_SOUND;
+      label.textContent = isMuted ? 'Звук выкл.' : 'Звук вкл.';
+      btn.setAttribute('aria-pressed', String(!isMuted));
+    }
+
+    btn.addEventListener('click', () => {
+      // Жест пользователя позволит включить звук на мобильных
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+      video.muted = !video.muted;
+      updateUI();
+    });
+
+    // Попытка автозапуска (на некоторых iOS/Android требуется взаимодействие)
+    video.play().catch(() => {
+      fallback.hidden = false;
+    });
+
+    // Если пользователь кликнул по экрану — запускаем
+    document.addEventListener('pointerdown', () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+        fallback.hidden = true;
+      }
+    }, { once: true });
+
+    updateUI();
+  </script>
+</body>
+</html>
