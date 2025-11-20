@@ -1,25 +1,36 @@
 <!DOCTYPE html>
+<!-- Chosen Palette: Noxian Crimson (Черный, Темно-красный, Золотой) -->
+<!-- Application Structure Plan: SPA (Single Page Application). 
+     1. Фон: Контейнер для видео с центрированием и черными полосами для поддержки 1024x1024.
+     2. Навигация: Верхнее фиксированное меню.
+     3. Секции: Главная (Заголовок), Кодекс (Лор/Правила), Сбор Душ (Кликер).
+     4. Интерактив: JS управляет переключением секций (display: none/flex), звуком и счетчиком душ.
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPÈRIUM OF SWUNGLE</title>
+    <title>SWUNGLE</title>
     
+    <!-- Подключаем Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Шрифты: Cinzel (Эпичный) и Inter (Читаемый) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;600&display=swap" rel="stylesheet">
     
+    <!-- Иконки (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Настройка цветов Tailwind -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         noxusRed: '#8a1c1c',
-                        noxusDark: '#0a0a0a',
                         noxusGold: '#c8aa6e',
                     },
                     fontFamily: {
@@ -32,185 +43,177 @@
     </script>
 
     <style>
-        /* Кастомные анимации */
-        body { background-color: black; overflow: hidden; }
+        body { background-color: #000; overflow: hidden; }
         
-        .glass-panel {
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(138, 28, 28, 0.3);
-            box-shadow: 0 0 20px rgba(138, 28, 28, 0.1);
+        /* КОНТЕЙНЕР ВИДЕО (Fix для 1024x1024) */
+        .video-wrapper {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
         }
 
-        .nav-item {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            background-color: #8a1c1c;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+        video {
+            /* Это гарантирует, что видео будет видно целиком, не обрезаясь */
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; 
         }
 
-        .nav-item:hover::after, .nav-item.active::after {
-            width: 100%;
-        }
-
-        .nav-item:hover { color: #c8aa6e; text-shadow: 0 0 10px rgba(200, 170, 110, 0.5); }
-
-        /* Анимация появления секций */
+        /* Анимации */
         .fade-in { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Для видео */
-        #video-bg {
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%; min-height: 100%;
-            width: auto; height: auto;
-            z-index: -1;
-            object-fit: cover; /* Или contain, если хочешь черные полосы */
-            opacity: 0.6; /* Затемняем видео, чтобы текст читался */
+        /* Эффект стекла */
+        .glass-panel {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 28, 28, 0.3);
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
         }
     </style>
 </head>
-<body class="text-gray-200 font-body">
+<body class="text-gray-200 font-body h-screen w-screen selection:bg-noxusRed selection:text-white">
 
-    <video id="video-bg" autoplay muted loop playsinline>
-        <source src="background.mp4" type="video/mp4">
-    </video>
+    <!-- 1. ФОНОВОЕ ВИДЕО -->
+    <div class="video-wrapper">
+        <video id="bg-video" autoplay muted loop playsinline>
+            <!-- Убедись, что файл называется background.mp4 -->
+            <source src="background.mp4" type="video/mp4">
+        </video>
+    </div>
 
-    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center glass-panel border-b border-noxusRed/30">
-        <div class="text-2xl font-epic font-bold text-noxusRed tracking-widest drop-shadow-lg">
-            <i class="fa-solid fa-crow mr-2"></i>SWUNGLE
+    <!-- 2. НАВИГАЦИЯ -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-gradient-to-b from-black via-black/80 to-transparent">
+        <!-- Логотип -->
+        <div class="text-2xl md:text-3xl font-epic font-bold text-noxusRed tracking-widest drop-shadow-[0_2px_10px_rgba(138,28,28,0.8)] cursor-pointer hover:text-white transition" onclick="showSection('home')">
+            SWUNGLE
         </div>
         
-        <div class="hidden md:flex space-x-8 font-epic font-bold tracking-wide">
-            <button onclick="navigate('home')" class="nav-item active" id="nav-home">ГЛАВНАЯ</button>
-            <button onclick="navigate('lore')" class="nav-item" id="nav-lore">КОДЕКС</button>
-            <button onclick="navigate('hall')" class="nav-item" id="nav-hall">ЗАЛ СЛАВЫ</button>
-            <button onclick="navigate('souls')" class="nav-item" id="nav-souls">СБОР ДУШ</button>
+        <!-- Меню -->
+        <div class="flex space-x-6 md:space-x-12 font-epic font-bold text-sm md:text-lg">
+            <button onclick="showSection('home')" class="nav-link text-noxusGold hover:text-white transition-colors uppercase" id="nav-home">Главная</button>
+            <button onclick="showSection('lore')" class="nav-link text-gray-400 hover:text-white transition-colors uppercase" id="nav-lore">Кодекс</button>
+            <button onclick="showSection('souls')" class="nav-link text-gray-400 hover:text-white transition-colors uppercase" id="nav-souls">Сбор Душ</button>
         </div>
 
-        <div class="flex items-center space-x-4">
-            <button id="mute-btn" class="w-10 h-10 rounded-full border border-noxusRed hover:bg-noxusRed hover:text-black transition flex items-center justify-center">
-                <i class="fa-solid fa-volume-xmark"></i>
-            </button>
-        </div>
+        <!-- Кнопка Звука -->
+        <button id="mute-toggle" class="w-10 h-10 rounded-full border border-noxusRed/50 text-noxusRed hover:bg-noxusRed hover:text-white transition flex items-center justify-center backdrop-blur-md">
+            <i class="fa-solid fa-volume-xmark"></i>
+        </button>
     </nav>
 
-    <main id="app-content" class="relative w-full h-screen flex flex-col items-center justify-center pt-20 px-4">
-        
-        <section id="home" class="text-center max-w-4xl fade-in">
-            <h1 class="text-6xl md:text-8xl font-epic font-black text-white mb-4 drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
-                NOXUS ETERNAL
+    <!-- 3. ОСНОВНОЙ КОНТЕНТ -->
+    <!-- pointer-events-none позволяет кликать сквозь контейнер по видео (если нужно), 
+         но внутри секций мы включаем клики обратно -->
+    <main class="relative z-10 w-full h-full flex flex-col items-center justify-center pointer-events-none pt-16">
+
+        <!-- СЕКЦИЯ: ГЛАВНАЯ -->
+        <div id="home" class="section flex flex-col items-center text-center pointer-events-auto">
+            <h1 class="text-5xl md:text-9xl font-epic font-black text-white drop-shadow-[0_5px_5px_rgba(0,0,0,1)] mb-2 fade-in">
+                NOXUS
             </h1>
-            <p class="text-xl md:text-2xl text-noxusGold font-light mb-8 drop-shadow-md">
-                "Они боятся того, чего не понимают. Мы заставим их понять."
+            <p class="text-lg md:text-2xl font-epic text-noxusGold tracking-[0.5em] bg-black/70 px-6 py-2 rounded backdrop-blur-sm fade-in">
+                GRAND GENERAL
             </p>
-            <button onclick="navigate('souls')" class="px-8 py-3 bg-noxusRed/80 hover:bg-noxusRed text-white font-epic font-bold rounded border border-red-500 transition hover:scale-105 shadow-[0_0_15px_rgba(138,28,28,0.6)]">
-                ПРИМКНУТЬ К ИМПЕРИИ
+            
+            <!-- Декоративная линия -->
+            <div class="w-24 h-1 bg-noxusRed mt-8 rounded-full shadow-[0_0_15px_#8a1c1c]"></div>
+        </div>
+
+        <!-- СЕКЦИЯ: КОДЕКС (ПРАВИЛА) -->
+        <div id="lore" class="section hidden pointer-events-auto max-w-2xl w-11/12">
+            <div class="glass-panel p-8 md:p-12 rounded-sm fade-in relative">
+                <!-- Уголки декоративные -->
+                <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-noxusRed"></div>
+                <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-noxusRed"></div>
+                <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-noxusRed"></div>
+                <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-noxusRed"></div>
+
+                <h2 class="text-3xl md:text-4xl font-epic text-noxusRed mb-8 text-center border-b border-gray-800 pb-4">
+                    ЗАКОНЫ СВАНГЛА
+                </h2>
+                
+                <ul class="space-y-6 text-left text-gray-300 text-lg">
+                    <li class="flex items-start group">
+                        <span class="text-noxusRed font-bold mr-4 mt-1 group-hover:text-noxusGold transition">I.</span>
+                        <p>Если ты промахнулся <span class="text-white font-bold">рукой</span>, то враг определённо пидорас, причём какой.</p>
+                    </li>
+                    <li class="flex items-start group">
+                        <span class="text-noxusRed font-bold mr-4 mt-1 group-hover:text-noxusGold transition">II.</span>
+                        <p>Пиздить киллы <span class="text-white font-bold"> очком </span> абсолютно богоугодно .</p>
+                    </li>
+                    <li class="flex items-start group">
+                        <span class="text-noxusRed font-bold mr-4 mt-1 group-hover:text-noxusGold transition">III.</span>
+                        <p>KDA не имеет значения. Имеет значение только количество собранных жатв.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- СЕКЦИЯ: СБОР ДУШ (КЛИКЕР) -->
+        <div id="souls" class="section hidden pointer-events-auto flex-col items-center fade-in">
+            
+            <!-- Счетчик -->
+            <div class="mb-8 text-center bg-black/60 p-4 rounded-lg backdrop-blur-sm border border-noxusRed/30">
+                <div class="text-noxusGold font-epic text-sm tracking-widest mb-1">ВСЕГО СОБРАНО</div>
+                <div id="soul-counter" class="text-6xl font-black text-white font-mono drop-shadow-[0_0_10px_rgba(255,0,0,0.5)]">0</div>
+            </div>
+
+            <!-- Кнопка -->
+            <button id="soul-btn" class="group relative w-48 h-48 rounded-full bg-gradient-to-b from-[#2a0a0a] to-black border-4 border-noxusRed shadow-[0_0_50px_rgba(138,28,28,0.4)] hover:shadow-[0_0_80px_rgba(138,28,28,0.8)] active:scale-95 transition-all duration-100 overflow-hidden">
+                
+                <!-- Иконка ворона/руки -->
+                <div class="absolute inset-0 flex items-center justify-center z-10">
+                    <i class="fa-solid fa-hand-holding-medical text-6xl text-gray-400 group-hover:text-white group-active:text-noxusRed transition-colors duration-200"></i>
+                </div>
+                
+                <!-- Эффект при наведении -->
+                <div class="absolute inset-0 bg-noxusRed opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </button>
-        </section>
 
-        <section id="lore" class="hidden glass-panel p-8 rounded-xl max-w-2xl w-full text-center border-t-4 border-noxusRed">
-            <h2 class="text-4xl font-epic text-noxusRed mb-6">Кодекс Свангла</h2>
-            <div class="space-y-4 text-lg text-gray-300 text-left">
-                <p><span class="text-noxusGold font-bold">Правило 1:</span> Никогда не промахивайся Eшкой. Если промахнулся — враг пидорас.</p>
-                <p><span class="text-noxusGold font-bold">Правило 2:</span> Ульта нажимается не для урона, а чтобы красиво нафидить.</p>
-                <p><span class="text-noxusGold font-bold">Правило 3:</span> Если ты фидишь, ты просто накапливаешь стаки горения очка.</p>
-                <hr class="border-gray-700 my-4">
-                <p class="italic text-sm text-center text-gray-500">"Я вижу слабость в их говнокоде." — Grand General</p>
-            </div>
-        </section>
-
-        <section id="hall" class="hidden glass-panel p-8 rounded-xl max-w-3xl w-full">
-            <h2 class="text-4xl font-epic text-noxusRed mb-8 text-center">Трибунал Друзей</h2>
-            <div class="overflow-x-auto">
-                <table class="w-full text-left">
-                    <thead class="text-noxusGold font-epic border-b border-gray-700">
-                        <tr>
-                            <th class="pb-3 pl-2">Ранг</th>
-                            <th class="pb-3">Имя</th>
-                            <th class="pb-3">Титул</th>
-                            <th class="pb-3">Мастерство</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-300 divide-y divide-gray-800">
-                        <tr class="hover:bg-white/5 transition">
-                            <td class="py-4 pl-2 text-noxusRed font-bold">I</td>
-                            <td class="py-4 font-bold">Admin (Ты)</td>
-                            <td class="py-4 italic">Верховный Генерал</td>
-                            <td class="py-4">∞</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition">
-                            <td class="py-4 pl-2">II</td>
-                            <td class="py-4">Друг 1</td>
-                            <td class="py-4">Ловец Скиллшотов</td>
-                            <td class="py-4">M7</td>
-                        </tr>
-                        <tr class="hover:bg-white/5 transition">
-                            <td class="py-4 pl-2">III</td>
-                            <td class="py-4">Друг 2</td>
-                            <td class="py-4">Профессиональный Фидер</td>
-                            <td class="py-4">Wood IV</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section id="souls" class="hidden flex flex-col items-center">
-            <div class="glass-panel p-10 rounded-full w-80 h-80 flex flex-col items-center justify-center border-4 border-double border-noxusRed shadow-[0_0_50px_rgba(138,28,28,0.4)] relative group">
-                <div class="absolute inset-0 rounded-full bg-noxusRed opacity-0 group-hover:opacity-10 transition duration-500"></div>
-                
-                <h3 class="text-noxusGold font-epic text-xl mb-2">Собрано Душ</h3>
-                <div id="soul-count" class="text-6xl font-black text-white font-mono">0</div>
-                
-                <button id="collect-btn" class="mt-6 bg-red-900 hover:bg-red-700 text-white w-16 h-16 rounded-full flex items-center justify-center transition-all active:scale-90 shadow-lg z-10">
-                    <i class="fa-solid fa-hand-holding-skull text-2xl"></i>
-                </button>
-            </div>
-            <p class="mt-6 text-gray-400 text-center max-w-md animate-pulse" id="soul-message">Нажми, чтобы вырвать душу врага...</p>
-        </section>
+            <!-- Всплывающий текст -->
+            <p id="soul-text" class="mt-8 text-center h-6 text-lg font-epic text-gray-500 italic transition-all duration-300">
+                Нажми, чтобы вырвать душу...
+            </p>
+        </div>
 
     </main>
 
     <script>
-        // --- ЛОГИКА НАВИГАЦИИ ---
-        function navigate(sectionId) {
+        // --- 1. ЛОГИКА НАВИГАЦИИ ---
+        function showSection(sectionId) {
             // Скрываем все секции
-            ['home', 'lore', 'hall', 'souls'].forEach(id => {
-                document.getElementById(id).classList.add('hidden');
-                document.getElementById('nav-' + id).classList.remove('active');
-                document.getElementById('nav-' + id).classList.remove('text-noxusGold');
+            document.querySelectorAll('.section').forEach(el => el.classList.add('hidden'));
+            // Сбрасываем цвета кнопок
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('text-noxusGold');
+                el.classList.add('text-gray-400');
             });
 
-            // Показываем нужную
+            // Показываем выбранную
             const target = document.getElementById(sectionId);
             target.classList.remove('hidden');
-            target.classList.add('fade-in');
+            // Если это главная или Souls, нам нужен flex, для Lore можно block (по умолчанию div)
+            if (sectionId === 'souls') target.classList.add('flex');
             
-            // Обновляем меню
-            const navItem = document.getElementById('nav-' + sectionId);
-            navItem.classList.add('active');
-            navItem.classList.add('text-noxusGold');
+            // Красим кнопку меню
+            const btn = document.getElementById('nav-' + sectionId);
+            btn.classList.remove('text-gray-400');
+            btn.classList.add('text-noxusGold');
         }
 
-        // --- ЛОГИКА ВИДЕО И ЗВУКА ---
-        const video = document.getElementById('video-bg');
-        const muteBtn = document.getElementById('mute-btn');
+        // --- 2. ЗВУК ---
+        const video = document.getElementById('bg-video');
+        const muteBtn = document.getElementById('mute-toggle');
         const icon = muteBtn.querySelector('i');
 
         muteBtn.addEventListener('click', () => {
@@ -221,47 +224,52 @@
             } else {
                 icon.classList.remove('fa-volume-xmark');
                 icon.classList.add('fa-volume-high');
-                // Попытка запустить видео со звуком, если оно стояло
-                video.play();
+                // Если браузер заблокировал автоплей, это его запустит
+                video.play().catch(e => console.log("Autoplay prevented"));
             }
         });
 
-        // --- ЛОГИКА МИНИ-ИГРЫ (СБОР ДУШ) ---
+        // --- 3. МИНИ-ИГРА (СБОР ДУШ) ---
         let souls = 0;
-        const soulDisplay = document.getElementById('soul-count');
-        const collectBtn = document.getElementById('collect-btn');
-        const messageDisplay = document.getElementById('soul-message');
+        const counterEl = document.getElementById('soul-counter');
+        const btnEl = document.getElementById('soul-btn');
+        const textEl = document.getElementById('soul-text');
 
         const phrases = [
-            "Еще одна жалкая душа...",
-            "Империя возвысится!",
-            "Я вижу их слабость.",
-            "Ноксус превыше всего!",
-            "Жалкие глупцы."
+            "Слабость.",
+            "Ещё одна.",
+            "Я вижу их страх.",
+            "Для Империи.",
+            "Бесполезно.",
+            "Они ничего не знают.",
+            "Слушай воронов."
         ];
 
-        collectBtn.addEventListener('click', () => {
+        btnEl.addEventListener('click', () => {
             souls++;
-            soulDisplay.innerText = souls;
-            
-            // Визуальный эффект нажатия
-            collectBtn.style.transform = "scale(0.9)";
-            setTimeout(() => collectBtn.style.transform = "scale(1)", 100);
+            counterEl.innerText = souls;
 
-            // Рандомные фразы каждые 5 кликов
-            if (souls % 5 === 0) {
-                const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-                messageDisplay.innerText = randomPhrase;
-                messageDisplay.style.color = "#c8aa6e"; // Золотой цвет
+            // Эффект тряски текста (визуально)
+            counterEl.style.transform = "scale(1.2)";
+            setTimeout(() => counterEl.style.transform = "scale(1)", 100);
+
+            // Рандомная фраза (шанс 30%)
+            if (Math.random() > 0.7 || souls === 1) {
+                const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+                textEl.innerText = phrase;
+                textEl.style.color = "#c8aa6e"; // Gold
+                textEl.style.textShadow = "0 0 10px rgba(200, 170, 110, 0.5)";
             } else {
-                messageDisplay.style.color = "#9ca3af"; // Серый цвет
+                // Возврат к серому цвету через время
+                setTimeout(() => {
+                    textEl.style.color = "#6b7280"; 
+                    textEl.style.textShadow = "none";
+                }, 1000);
             }
         });
 
-        // Обработка клавиш навигации для теста (опционально)
-        document.addEventListener('keydown', (e) => {
-            if(e.key === "Escape") navigate('home');
-        });
+        // Запуск с Главной страницы
+        showSection('home');
 
     </script>
 </body>
