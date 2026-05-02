@@ -269,7 +269,7 @@ main {
 /* === COUNTERS GRID === */
 .counters {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
 }
 .counter-card {
@@ -741,20 +741,20 @@ footer.bottom .secret a:hover { color: var(--blood); }
 .niko-img-wrap img {
   display: block;
   width: 100%;
-  height: 320px;
+  height: 360px;
   object-fit: cover;
-  object-position: center 30%;
-  /* THE STRETCH - вот эта дикая растяжка */
+  object-position: center 38%;
+  /* THE STRETCH - дикая растяжка */
   transform: scaleX(1.4) scaleY(0.85);
   filter: saturate(1.2) contrast(1.1);
 }
 .niko-circle {
   position: absolute;
-  /* кружок поверх лица — настроено под фото */
-  top: 18%;
-  left: 47%;
-  width: 110px;
-  height: 110px;
+  /* круг прямо на лице (на глазах/носу) */
+  top: 50%;
+  left: 50%;
+  width: 130px;
+  height: 130px;
   border: 6px solid #ff0000;
   border-radius: 50%;
   box-shadow: 0 0 20px rgba(255,0,0,0.8);
@@ -768,9 +768,9 @@ footer.bottom .secret a:hover { color: var(--blood); }
 }
 .niko-arrow {
   position: absolute;
-  /* стрелка — указывает на круг */
-  top: 35%;
-  left: 70%;
+  /* стрелка указывает на круг с правого бока */
+  top: 48%;
+  left: 65%;
   width: 140px;
   height: 80px;
   pointer-events: none;
@@ -828,14 +828,13 @@ footer.bottom .secret a:hover { color: var(--blood); }
   .hero { padding: 50px 16px 30px; }
   .hero h1 { font-size: 80px; }
   .section { margin: 40px auto; padding: 0 16px; }
-  .counters { grid-template-columns: 1fr; }
   .friends-grid { grid-template-columns: 1fr; }
   .raven-wall { font-size: 26px; padding: 32px 16px; }
   .bio { padding: 20px; }
   .bio .infobox { float: none; width: 100%; margin: 0 0 16px 0; }
   .certificate { padding: 24px 16px; }
   .niko-popup { padding: 20px; }
-  .niko-img-wrap img { height: 220px; }
-  .niko-circle { width: 80px; height: 80px; border-width: 4px; }
-  .niko-arrow { width: 90px; height: 50px; left: 65%; }
+  .niko-img-wrap img { height: 240px; }
+  .niko-circle { width: 95px; height: 95px; border-width: 4px; }
+  .niko-arrow { width: 100px; height: 60px; left: 65%; }
 }
