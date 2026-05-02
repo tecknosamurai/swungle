@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МОИ ДРУЗЬЯ · SWAIN.LOVE</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦‍⬛</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== NIKO POPUP ========== -->
+  <div class="niko-overlay" id="niko-overlay">
+    <div class="niko-popup">
+      <button class="close" data-close aria-label="закрыть">✕</button>
+      <h2>ВАС ОБОКРАЛИ!</h2>
+      <div class="niko-img-wrap">
+        <img src="niko.jpg" alt="Niko">
+        <div class="niko-circle"></div>
+        <!-- arrow -->
+        <svg class="niko-arrow" viewBox="0 0 140 80" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <polygon points="0 0, 8 4, 0 8" fill="#ffd700" stroke="#000" stroke-width="0.5"/>
+            </marker>
+          </defs>
+          <path d="M 130 70 Q 100 30 30 30" stroke="#ffd700" stroke-width="6" fill="none" marker-end="url(#arrowhead)" stroke-linecap="round"/>
+          <path d="M 130 70 Q 100 30 30 30" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="4 4"/>
+        </svg>
+      </div>
+      <div class="niko-text">
+        ХВАТИТ ПИТЬ МОЮ ГАЗИРОВКУ!!!!<br>
+        Я ЗНАЮ ЧТО ЭТО ТЫ, А НЕ ПУСТАЯ БАНКА
+        <small>(нажми кнопку чтобы продолжить · банка не оправдание)</small>
+      </div>
+      <button class="niko-ok-btn" data-close>ОК ИЗВИНИ</button>
+    </div>
+  </div>
+
+  <!-- скрытый аудиоэлемент для попапа -->
+  <audio id="niko-sound" preload="auto">
+    <source src="popup-sound.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ========== BG ========== -->
+  <video class="bg-video" autoplay loop muted playsinline>
+    <source src="background_1_.mp4" type="video/mp4">
+  </video>
+  <div class="bg-fallback"></div>
+  <div class="bg-overlay"></div>
+
+  <main>
+
+    <!-- TOP MARQUEE -->
+    <div class="marquee">
+      <div class="marquee-inner">
+        <span>👥 СПИСОК МОИХ ДРУЗЕЙ · АКТУАЛЬНЫЙ · ДВА ЧЕЛОВЕКА · БОЛЬШЕ НЕ НУЖНО</span>
+        <span>🐦‍⬛ БЕАТРИЧЕ — НЕ ДРУГ. БЕАТРИЧЕ — ЖЕНА. ОНА В ДРУГОЙ КАТЕГОРИИ.</span>
+        <span>⚠️ КИНДРЕД ПЫТАЛОСЬ ЗАПИСАТЬСЯ В ДРУЗЬЯ. <span style="color: #000;">КАК ОНО ЗДЕСЬ ОКАЗАЛОСЬ — РАЗБИРАЕМСЯ.</span></span>
+        <span>👥 СПИСОК МОИХ ДРУЗЕЙ · АКТУАЛЬНЫЙ · ДВА ЧЕЛОВЕКА · БОЛЬШЕ НЕ НУЖНО</span>
+        <span>🐦‍⬛ БЕАТРИЧЕ — НЕ ДРУГ. БЕАТРИЧЕ — ЖЕНА. ОНА В ДРУГОЙ КАТЕГОРИИ.</span>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="topnav">
+      <a href="index.html" class="brand">SWAIN<span class="heart">.LOVE</span></a>
+      <div class="topnav-links">
+        <a href="index.html">главная</a>
+        <a href="enemies.html">враги народа</a>
+        <a href="shop.html">магазин</a>
+        <a href="patchnotes.html">патчноут</a>
+        <a href="decrees.html">указы</a>
+        <a href="blog.html">блог</a>
+        <a href="friends.html">друзья</a>
+        <a href="contacts.html">контакты</a>
+        <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" style="padding-bottom: 0;">
+      <div class="pre-title">⚔️ ОФИЦИАЛЬНЫЙ СПИСОК ⚔️</div>
+      <h1 style="font-size: clamp(56px, 12vw, 160px);">МОИ ДРУЗЬЯ</h1>
+      <div class="tagline">
+        у <span class="me">меня</span> их двое. <span class="strike">больше не нужно</span> точка. не зови других.
+      </div>
+    </section>
+
+    <!-- INTRO BOX -->
+    <section class="section">
+      <div class="box bone tilted">
+        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.65;">
+          итак. у <span class="me">меня</span> есть <b>друзья</b>. это слово <span class="me">я</span> употребляю редко. но если уж употребляю — то по делу.
+        </p>
+        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.65; margin-top: 12px;">
+          <span class="me">Я</span> отбираю друзей по строгим критериям: <span class="strike">любят меня</span> терпят меня, <span class="strike">не пытаются переворот</span> хотя бы открыто, и не <span class="me">меня</span> раздражают <i>каждые</i> 5 минут (раз в час — допустимо).
+        </p>
+        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.65; margin-top: 12px;">
+          ниже — <b>полный список</b>. он окончательный. (Картус не друг. она жена. Беатриче тоже не друг — она <i>больше</i>. они в других разделах.)
+        </p>
+        <span class="signature">Я</span>
+      </div>
+    </section>
+
+    <!-- FRIENDS GRID -->
+    <section class="section">
+      <div class="friends-grid">
+
+        <!-- СОРАКА -->
+        <div class="friend-card tilt-l">
+          <div class="friend-portrait">🐐✨</div>
+          <div class="friend-name">СОРАКА</div>
+          <div class="friend-role">САППОРТ · ЗВЕЗДНОЕ ДИТЯ · НАСТОЯЩИЙ ДРУГ</div>
+
+          <div class="friend-comment">
+            нормальный человек. лечит. не уходит из лейна без причины (в отличие от <i>некоторых</i>). <span class="me">Я</span> уважаю.
+          </div>
+
+          <div style="margin-top: 16px; padding: 14px; background: rgba(255,215,0,0.08); border: 1px dashed var(--gold); font-family: 'Oswald', sans-serif; font-size: 16px; line-height: 1.45;">
+            <b style="color: var(--gold);">⚠ ЕДИНСТВЕННАЯ ПРОБЛЕМА:</b><br>
+            Беатриче. она клюёт ей рог.<br><br>
+            <i>«Беатриче, не клюй её рог, это неприлично!</i><br>
+            <i>БЕАТРИЧЕ!!!!»</i><br><br>
+            (Беатриче не слушает. рог уже наполовину. <span class="me">я</span> разберусь.)
+          </div>
+
+          <div style="margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gold); letter-spacing: 0.1em; text-align: center;">
+            ═══════════════════════════<br>
+            СТАТУС: ДРУГ · ПРОВЕРЕНО<br>
+            ЛОЯЛЬНОСТЬ: ✦✦✦✦✦ (5/5)<br>
+            РОГ: НА 47% ОБКЛЁВАН<br>
+            ═══════════════════════════
+          </div>
+        </div>
+
+        <!-- КИНДРЕД -->
+        <div class="friend-card tilt-r" style="border-color: var(--blood);">
+          <div class="friend-portrait">🐺🏹</div>
+          <div class="friend-name" style="color: var(--blood);">КИНДРЕД</div>
+          <div class="friend-role">ЛЕС · ВОЛК + ОВЦА · СОСТАВ НЕЯСЕН</div>
+
+          <div class="friend-comment" style="border-left-color: var(--gold);">
+            <span class="strike">друг</span> <b>СПОРНО.</b> <span class="me">я</span> не помню как они тут оказались. кто-то записал. <span class="me">я</span> расследую.
+          </div>
+
+          <div style="margin-top: 16px; padding: 14px; background: rgba(255,0,0,0.08); border: 1px dashed var(--blood); font-family: 'Oswald', sans-serif; font-size: 16px; line-height: 1.45;">
+            <b style="color: var(--blood);">⚠ ИХ ПОСЛЕДНИЕ СЛОВА:</b><br>
+            <i>«а их кто сюда добаААА...»</i>
+            <br><br>
+            <span class="whisper">(предложение оборвалось. Беатриче рядом. совпадение?)</span><br>
+            <span class="whisper">(Беатриче клюнула ИХ. да. <span class="me">я</span> не контролирую её.)</span>
+          </div>
+
+          <div style="margin-top: 16px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blood); letter-spacing: 0.1em; text-align: center;">
+            ═══════════════════════════<br>
+            СТАТУС: ДРУГ?? ?? ??<br>
+            ЛОЯЛЬНОСТЬ: ✦✦✦☐☐ (3/5)<br>
+            ВОПРОСОВ К БЕАТРИЧЕ: МНОГО<br>
+            ═══════════════════════════
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DECLARATION -->
+    <section class="section">
+      <div class="box gold tilted-r">
+        <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold); letter-spacing: 0.05em; margin-bottom: 12px; text-align: center;">
+          📢 ОФИЦИАЛЬНОЕ ЗАЯВЛЕНИЕ
+        </h3>
+        <p style="font-family: 'Oswald', sans-serif; font-size: 17px; line-height: 1.65;">
+          список <b>закрыт</b>. дополнительные кандидатуры не рассматриваются. если ты считаешь себя <span class="me">моим</span> другом и тебя нет в списке — ты ошибаешься. не <span class="me">я</span> сделал. я <span class="strike">не</span> разработчик списка <span class="strike">тоже</span>.
+        </p>
+        <p style="font-family: 'Oswald', sans-serif; font-size: 17px; line-height: 1.65; margin-top: 12px;">
+          претензии направлять <a href="contacts.html" style="color: var(--gold);">сюда</a>. они не будут рассмотрены. но направить можно.
+        </p>
+        <span class="signature">Я</span>
+      </div>
+    </section>
+
+    <!-- BOTTOM MARQUEE -->
+    <div class="marquee bottom">
+      <div class="marquee-inner">
+        <span>СОРАКА: ОДОБРЕНО ✦</span>
+        <span>КИНДРЕД: НА РАССМОТРЕНИИ ✦</span>
+        <span>ВСЕ ОСТАЛЬНЫЕ: ОТКАЗАНО ✦</span>
+        <span>БЕАТРИЧЕ ОТСТАВЬ РОГ ✦</span>
+        <span>СОРАКА: ОДОБРЕНО ✦</span>
+        <span>КИНДРЕД: НА РАССМОТРЕНИИ ✦</span>
+        <span>ВСЕ ОСТАЛЬНЫЕ: ОТКАЗАНО ✦</span>
+        <span>БЕАТРИЧЕ ОТСТАВЬ РОГ ✦</span>
+      </div>
+    </div>
+
+    <footer class="bottom">
+      <div>© SWAIN.LOVE · СПИСОК ДРУЗЕЙ · ОКОНЧАТЕЛЬНЫЙ</div>
+      <div>две позиции · больше не будет · не пиши Я</div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
