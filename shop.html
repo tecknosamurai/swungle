@@ -3,79 +3,265 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>СТРОИТСЯ · SWAIN.LOVE</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦‍⬛</text></svg>">
+<title>МАГАЗИН // СВЕЙН</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <video class="bg-video" autoplay loop muted playsinline>
-    <source src="background_1_.mp4" type="video/mp4">
-  </video>
-  <div class="bg-fallback"></div>
-  <div class="bg-overlay"></div>
 
-  <main>
-    <div class="marquee">
-      <div class="marquee-inner">
-        <span>⚠️ СТРАНИЦА В СТАДИИ ПОДГОТОВКИ · ВЕЛИКИЙ ГЕНЕРАЛ ЛИЧНО ПИШЕТ КОНТЕНТ</span>
-        <span>⏳ НАПИСАНИЕ ЗАЙМЁТ ВРЕМЯ · НЕ ТОРОПИТЕ ЕГО · ОН РАЗДРАЖАЕТСЯ</span>
-        <span>⚠️ СТРАНИЦА В СТАДИИ ПОДГОТОВКИ · ВЕЛИКИЙ ГЕНЕРАЛ ЛИЧНО ПИШЕТ КОНТЕНТ</span>
-        <span>⏳ НАПИСАНИЕ ЗАЙМЁТ ВРЕМЯ · НЕ ТОРОПИТЕ ЕГО · ОН РАЗДРАЖАЕТСЯ</span>
+<div id="cur">
+  <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 3C11 3 7 6.5 7 11C7 14.5 9 16 10 17L8 26L12.5 21.5L15 24L17.5 21.5L22 26L20 17C21 16 23 14.5 23 11C23 6.5 19 3 15 3Z" fill="#c01818" opacity=".92"/>
+    <circle cx="12" cy="10" r="1.3" fill="#f2ede4"/>
+    <path d="M7 9.5L3 7.5L7 11.5" fill="#c01818"/>
+  </svg>
+</div>
+<div id="cur-dot"></div>
+
+<div class="bg"></div>
+<div class="grain"></div>
+<div class="scanlines"></div>
+<div class="vignette"></div>
+
+<main>
+
+  <nav class="topbar" id="topbar">
+    <div class="left">
+      <a href="index.html" class="brand">СВЕЙН</a>
+      <a href="enemies.html" class="hide-m">Враги</a>
+      <a href="shop.html" class="hide-m active">Магазин</a>
+      <a href="patchnotes.html" class="hide-m">Патчноут</a>
+      <a href="decrees.html" class="hide-m">Указы</a>
+      <a href="blog.html" class="hide-m">Блог</a>
+      <a href="friends.html" class="hide-m">Друзья</a>
+      <a href="contacts.html" class="hide-m">Контакты</a>
+      <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
+    </div>
+    <div class="topbar-right">НОКСУС · ПАТЧ ТЕКУЩИЙ · ПОВИНУЙСЯ</div>
+    <button class="burger" id="burger" aria-label="меню"><span></span><span></span><span></span></button>
+    <div class="mobile-menu" id="mmenu">
+      <a href="index.html">Главная</a>
+      <a href="enemies.html">Враги</a>
+      <a href="shop.html" class="active">Магазин</a>
+      <a href="patchnotes.html">Патчноут</a>
+      <a href="decrees.html">Указы</a>
+      <a href="blog.html">Блог</a>
+      <a href="friends.html">Друзья</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="family.html" class="danger">не нажимать</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrap" style="min-height: auto;">
+    <div class="plx">
+      <div class="plx-text-bg" style="font-size: 32vw;">МАГАЗИН</div>
+    </div>
+    <section class="hero single" style="min-height: auto; padding-top: 90px; padding-bottom: 40px;">
+      <div class="hero-left" style="margin: 0 auto;">
+        <div class="kicker">◢ официальная торговая площадка · единственная</div>
+        <h1 style="font-size: clamp(56px, 11vw, 160px);">
+          мой <span class="h1-red" data-t="МЕРЧ" style="transform: none; display: inline-block;">мерч</span>
+        </h1>
+        <p class="manifesto center" style="margin-left: auto; margin-right: auto;">
+          купи. <span class="strike">не покупай</span> купи.
+          цены окончательные. возврата нет. доставка через Беатриче (она линяет, посылка в перьях).
+          оплата только в евро или душах.
+        </p>
       </div>
+    </section>
+  </div>
+
+  <!-- TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>возврата нет</span>
+      <span>доставка через ворона</span>
+      <span>оплата душой принимается</span>
+      <span>беатриче линяет — товар свежий</span>
+      <span>возврата нет</span>
+      <span>доставка через ворона</span>
+      <span>оплата душой принимается</span>
+      <span>беатриче линяет — товар свежий</span>
+    </div>
+  </div>
+
+  <!-- SHOP -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">каталог · обновлён сегодня</div>
+      <h2 class="sec-h2">в <em>наличии</em>.</h2>
+      <p class="sec-lede">12 позиций. часть — распродана навсегда. часть — никогда не появится. оставшееся можно купить.</p>
     </div>
 
-    <nav class="topnav">
-      <a href="index.html" class="brand">SWAIN<span class="heart">.LOVE</span></a>
-      <div class="topnav-links">
-        <a href="index.html">главная</a>
-        <a href="enemies.html">враги народа</a>
-        <a href="shop.html">магазин</a>
-        <a href="patchnotes.html">патчноут</a>
-        <a href="decrees.html">указы</a>
-        <a href="blog.html">блог</a>
-        <a href="friends.html">друзья</a>
-        <a href="contacts.html">контакты</a>
-        <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
-      </div>
-    </nav>
+    <div class="shop-grid">
 
-    <section class="hero">
-      <div class="crown">⚠️</div>
-      <div class="pre-title">⚒️ В РАЗРАБОТКЕ ⚒️</div>
-      <h1 style="font-size: clamp(48px, 10vw, 120px);">СКОРО</h1>
-      <div class="tagline">эта страница пока не готова. <span class="me">я</span> работаю над ней. <span class="strike">не торопи</span> подожди.</div>
-    </section>
-
-    <section class="section">
-      <div class="box bone tilted" style="text-align: center;">
-        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.6;">
-          контент будет добавлен в одной из следующих итераций. до тех пор —
-          возвращайся на <a href="index.html" style="color: var(--blood);">главную</a> или
-          посмотри <a href="friends.html" style="color: var(--gold);">друзей</a>.
-        </p>
-        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.6; margin-top: 16px;">
-          (страница <a href="family.html" class="strike" style="color: var(--bone);">family.html</a> технически существует но <span class="me">я</span> её не показываю. это служебное.)
-        </p>
-        <span class="signature">Я</span>
+      <div class="product reveal">
+        <div class="product-stamp">бестселлер</div>
+        <div class="product-img">🦾</div>
+        <div class="product-cat">атрибутика · протезы</div>
+        <div class="product-name">протез левой руки</div>
+        <div class="product-desc">железо. ручная ковка. <em>не работает как у меня</em>. но выглядит так же. размер L. (других нет.)</div>
+        <div class="product-price">€ 9 999</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
       </div>
-    </section>
 
-    <div class="marquee bottom">
-      <div class="marquee-inner">
-        <span>POSHOL NAHUY DEMACIA 🤝</span>
-        <span>СКОРО ВСЁ БУДЕТ ✦</span>
-        <span>БЕАТРИЧЕ ЖДЁТ ✦</span>
-        <span>POSHOL NAHUY DEMACIA 🤝</span>
-        <span>СКОРО ВСЁ БУДЕТ ✦</span>
-        <span>БЕАТРИЧЕ ЖДЁТ ✦</span>
+      <div class="product reveal">
+        <div class="product-stamp">свежее</div>
+        <div class="product-img">🪶</div>
+        <div class="product-cat">атрибутика · перья</div>
+        <div class="product-name">использованное перо беатриче</div>
+        <div class="product-desc">подлинность подтверждена. она линяет, у <span class="me">меня</span> их много. упаковано в траурный конверт.</div>
+        <div class="product-price">€ 4 800</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
       </div>
+
+      <div class="product reveal">
+        <div class="product-img">💀</div>
+        <div class="product-cat">расходники · б/у</div>
+        <div class="product-name">осколок души</div>
+        <div class="product-desc">бывший в употреблении. чей был — не уточняется. возможно <em>ваш</em> в будущем.</div>
+        <div class="product-price">€ 750</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
+      </div>
+
+      <div class="product reveal">
+        <div class="product-stamp">премиум</div>
+        <div class="product-img">⏱️</div>
+        <div class="product-cat">услуги · аудиенция</div>
+        <div class="product-name">личная встреча · 3 минуты</div>
+        <div class="product-desc">очередь 18 месяцев. место в <em>чёрном омуте</em>. говорить мало. слушать много. одевайтесь скромно.</div>
+        <div class="product-price">€ 50 000</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
+      </div>
+
+      <div class="product reveal">
+        <div class="product-stamp">VIP</div>
+        <div class="product-img">⏱️</div>
+        <div class="product-cat">услуги · аудиенция</div>
+        <div class="product-name">личная встреча · без очереди</div>
+        <div class="product-desc">тоже 3 минуты. но прямо сейчас. <em>цена включает право первенства</em>. остальные в очереди вас возненавидят.</div>
+        <div class="product-price">€ 500 000</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
+      </div>
+
+      <div class="product reveal">
+        <div class="product-img">✍️</div>
+        <div class="product-cat">бумажная продукция</div>
+        <div class="product-name">мой автограф</div>
+        <div class="product-desc">фейковый. <span class="me">я</span> не подписываю. но выглядит убедительно. на бумаге А5. в рамке за <em>отдельные деньги</em>.</div>
+        <div class="product-price">€ 15</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
+      </div>
+
+      <div class="product reveal">
+        <div class="product-img">🧢</div>
+        <div class="product-cat">одежда · головные уборы</div>
+        <div class="product-name">кепка «я был в ноксусе»</div>
+        <div class="product-desc">черная. вышитый ворон. размер one-size. <em>после носки не возвращается</em>. (это не про возврат, это про крепление.)</div>
+        <div class="product-price">€ 40</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
+      </div>
+
+      <div class="product sold-out reveal">
+        <div class="product-stamp">распродано</div>
+        <div class="product-img">🧢</div>
+        <div class="product-cat">одежда · головные уборы</div>
+        <div class="product-name">кепка «я был в демасии»</div>
+        <div class="product-desc">никогда не было в наличии. демасии не существует. <em>и не существовало</em>. кепка концептуальная.</div>
+        <div class="product-price">€ —</div>
+        <a href="#" class="product-buy"><span>распродано</span></a>
+      </div>
+
+      <div class="product reveal">
+        <div class="product-img">📜</div>
+        <div class="product-cat">бумажная продукция</div>
+        <div class="product-name">сертификат «я видел великого генерала»</div>
+        <div class="product-desc">распечатан на принтере. подпись <span class="me">моя</span> (фейковая, см. выше). печать настоящая.</div>
+        <div class="product-price">€ 120</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
+      </div>
+
+      <div class="product reveal">
+        <div class="product-img">📕</div>
+        <div class="product-cat">образование · книги</div>
+        <div class="product-name">«как отрезать руку и получить власть»</div>
+        <div class="product-desc">учебник. 247 страниц. <em>не работает</em> ни у кого кроме <span class="me">меня</span>. но интересно почитать.</div>
+        <div class="product-price">€ 30</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
+      </div>
+
+      <div class="product reveal">
+        <div class="product-stamp">набор</div>
+        <div class="product-img">📦</div>
+        <div class="product-cat">наборы · стартовые</div>
+        <div class="product-name">«начинающий тиран»</div>
+        <div class="product-desc">в комплекте: <em>1 ворон</em> (не Беатриче), <em>1 верёвка</em>, <em>1 плохое детство</em>. инструкции прилагаются на трёх языках.</div>
+        <div class="product-price">€ 299</div>
+        <a href="#" class="product-buy"><span>купить</span></a>
+      </div>
+
+      <div class="product reveal">
+        <div class="product-img">💳</div>
+        <div class="product-cat">подписки</div>
+        <div class="product-name">«друг генерала»</div>
+        <div class="product-desc">ежемесячный платёж. <em>преимуществ нет</em>. просто доплачиваешь <span class="me">мне</span> за то что <span class="me">я</span> великий. подписку отменить нельзя.</div>
+        <div class="product-price">€ 59 / мес</div>
+        <a href="#" class="product-buy"><span>оформить</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INFO BLOCK -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">условия торговли · важно</div>
+      <h2 class="sec-h2">прежде чем <em>купишь</em>.</h2>
+      <p class="sec-lede">прочитай. не прочитал — твоя проблема. <span class="me">я</span> предупредил.</p>
     </div>
 
-    <footer class="bottom">
-      <div>© SWAIN.LOVE · СТРАНИЦА ЕЩЁ ПИШЕТСЯ · НЕ ТОРОПИТЕ Я</div>
-    </footer>
-  </main>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+      <div class="tile reveal">
+        <div class="tile-stamp">правило 1</div>
+        <div class="tile-num">∅</div>
+        <div class="tile-title">возврата<br>не существует</div>
+        <div class="tile-body">купил — твоё. навсегда. независимо от состояния. жаловаться можно <a href="contacts.html" style="color: var(--blood);">сюда</a>. (не помогает.)</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-stamp">правило 2</div>
+        <div class="tile-num">🐦</div>
+        <div class="tile-title">доставка<br>через беатриче</div>
+        <div class="tile-body">срок 1–14 дней. зависит от её настроения. не торопите её. посылка приходит в перьях.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-stamp">правило 3</div>
+        <div class="tile-num">∞</div>
+        <div class="tile-title">оплата<br>в евро или душах</div>
+        <div class="tile-body">курс плавающий. душа за €1 200. редкая душа дороже. ваша душа — на оценке. результат сообщим.</div>
+      </div>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- BOTTOM TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>купи · не покупай · купи</span>
+      <span>беатриче ждёт твою посылку</span>
+      <span>возврата нет</span>
+      <span>купи · не покупай · купи</span>
+      <span>беатриче ждёт твою посылку</span>
+      <span>возврата нет</span>
+    </div>
+  </div>
+
+  <footer class="bottom">
+    <div>© SWAIN.LOVE · ОФИЦИАЛЬНЫЙ МАГАЗИН · ЕДИНСТВЕННЫЙ</div>
+    <div>любые подделки преследуются по закону · моему</div>
+    <div class="secret"><a href="family.html">.</a></div>
+  </footer>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

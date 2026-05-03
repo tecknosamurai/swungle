@@ -1,15 +1,93 @@
 /* SWAIN.LOVE — global script */
 
+// ============ CURSOR ============
+(function () {
+  const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!isFinePointer) return;
+
+  const cur = document.getElementById('cur');
+  const dot = document.getElementById('cur-dot');
+  if (!cur || !dot) return;
+
+  let cx = -100, cy = -100;
+  document.addEventListener('mousemove', (e) => {
+    cx = e.clientX;
+    cy = e.clientY;
+    cur.style.left = cx + 'px';
+    cur.style.top = cy + 'px';
+    // mouse-reactive bg
+    document.documentElement.style.setProperty('--gx', ((cx / window.innerWidth) * 100).toFixed(1) + '%');
+    document.documentElement.style.setProperty('--gy', ((cy / window.innerHeight) * 100).toFixed(1) + '%');
+    setTimeout(() => {
+      dot.style.left = cx + 'px';
+      dot.style.top = cy + 'px';
+    }, 90);
+  });
+
+  // hover state
+  const hoverTargets = 'a, button, .stamp, .tile, .friend-card, .fam-card, input, .raven, .bubble, .invest';
+  document.querySelectorAll(hoverTargets).forEach((el) => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cur-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cur-hover'));
+  });
+})();
+
+// ============ TOPBAR SHRINK ============
+(function () {
+  const topbar = document.getElementById('topbar');
+  if (!topbar) return;
+  window.addEventListener('scroll', () => {
+    topbar.classList.toggle('small', window.scrollY > 60);
+  }, { passive: true });
+})();
+
+// ============ HAMBURGER ============
+(function () {
+  const burger = document.getElementById('burger');
+  const mmenu = document.getElementById('mmenu');
+  if (!burger || !mmenu) return;
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mmenu.classList.toggle('open');
+  });
+  mmenu.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mmenu.classList.remove('open');
+    });
+  });
+})();
+
+// ============ FADE-UP REVEAL ============
+(function () {
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('vis');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach((el) => io.observe(el));
+})();
+
 // ============ COUNTERS ============
 (function () {
   const counters = [
-    { id: 'cnt-hanged',  start: 1247389, step: () => Math.floor(Math.random()*8)+1, every: 600 },
-    { id: 'cnt-souls',   start: 8472,    step: () => Math.floor(Math.random()*3),   every: 1200 },
-    { id: 'cnt-yasuo',   start: 91,      step: () => Math.random() > 0.5 ? 1 : 0,   every: 2000 },
-    { id: 'cnt-visitors',start: 847291,  step: () => Math.floor(Math.random()*3),   every: 2200 },
-    { id: 'cnt-support', start: 0,       step: () => 1,                              every: 1000 },
+    { id: 'cnt-hanged',    start: 1247389, step: () => Math.floor(Math.random() * 8) + 1, every: 600 },
+    { id: 'cnt-souls',     start: 8472,    step: () => Math.floor(Math.random() * 3),     every: 1200 },
+    { id: 'cnt-yasuo',     start: 91,      step: () => (Math.random() > 0.5 ? 1 : 0),      every: 2000 },
+    { id: 'cnt-visitors',  start: 847291,  step: () => Math.floor(Math.random() * 3),     every: 2200 },
+    { id: 'cnt-support',   start: 0,       step: () => 1,                                  every: 1000 },
+    { id: 'cnt-kartus',    start: 14,      step: () => 0,                                  every: 999999 },
+    { id: 'cnt-deduly',    start: 47,      step: () => (Math.random() > 0.7 ? 1 : 0),     every: 5000 },
+    { id: 'cnt-aphelios',  start: 0,       step: () => 1,                                  every: 1500 },
+    { id: 'cnt-letters',   start: 247,     step: () => 0,                                  every: 999999 },
+    { id: 'cnt-beatrice',  start: 9999,    step: () => 0,                                  every: 999999 },
   ];
-  counters.forEach(c => {
+  counters.forEach((c) => {
     const el = document.getElementById(c.id);
     if (!el) return;
     let val = c.start;
@@ -22,44 +100,45 @@
 
   // mood ticker
   const moods = [
-    'раздражён', 'готовит ульт', 'думает о Беатриче', 'наблюдает',
-    'смотрит на тебя', 'планирует переворот', 'кушает', 'допрашивает Афелия',
-    'игнорирует Картус', 'злится на Тимо', 'ищет Энни', 'читает донос',
-    'свергает кого-то', 'просто свергает', 'недоволен Демасией',
-    'обдумывает мерч', 'кормит Беатриче', 'мечтает о войне', 'разочарован тобой',
+    'РАЗДРАЖЁН', 'ГОТОВИТ УЛЬТ', 'ДУМАЕТ О БЕАТРИЧЕ', 'НАБЛЮДАЕТ',
+    'СМОТРИТ НА ТЕБЯ', 'ПЛАНИРУЕТ ПЕРЕВОРОТ', 'КУШАЕТ', 'ИГНОРИРУЕТ КАРТУС',
+    'ЗЛИТСЯ НА ТИМО', 'ИЩЕТ СЕТТА', 'ЧИТАЕТ ДОНОС', 'СВЕРГАЕТ КОГО-ТО',
+    'НЕДОВОЛЕН ДЕМАСИЕЙ', 'КОРМИТ БЕАТРИЧЕ', 'РАЗОЧАРОВАН ТОБОЙ',
   ];
   const moodEl = document.getElementById('mood-now');
   if (moodEl) {
-    moodEl.textContent = moods[Math.floor(Math.random()*moods.length)];
+    moodEl.textContent = moods[Math.floor(Math.random() * moods.length)];
     setInterval(() => {
-      moodEl.textContent = moods[Math.floor(Math.random()*moods.length)];
+      moodEl.textContent = moods[Math.floor(Math.random() * moods.length)];
     }, 3500);
   }
 
-  // irritation gauge — растёт пока ты тут
+  // irritation
   const irrEl = document.getElementById('irritation');
   if (irrEl) {
     let irr = 1;
     irrEl.textContent = irr + ' / 10';
     setInterval(() => {
       irr = Math.min(10, irr + (Math.random() > 0.6 ? 1 : 0));
-      irrEl.textContent = irr + ' / 10';
-      if (irr >= 10) irrEl.textContent = '10 / 10 (МАКС)';
+      irrEl.textContent = irr === 10 ? '10 / 10 МАКС' : irr + ' / 10';
     }, 4000);
   }
 
   // coup countdown
   const coupEl = document.getElementById('coup-countdown');
   if (coupEl) {
-    let secs = Math.floor(Math.random()*200) + 50;
+    let secs = Math.floor(Math.random() * 200) + 50;
     setInterval(() => {
       if (secs <= 0) {
         coupEl.textContent = 'СЕЙЧАС';
-        setTimeout(() => { secs = Math.floor(Math.random()*200) + 50; }, 800);
+        setTimeout(() => {
+          secs = Math.floor(Math.random() * 200) + 50;
+        }, 800);
       } else {
         secs--;
-        const m = Math.floor(secs/60), s = secs % 60;
-        coupEl.textContent = m + ':' + (s < 10 ? '0'+s : s);
+        const m = Math.floor(secs / 60);
+        const s = secs % 60;
+        coupEl.textContent = m + ':' + (s < 10 ? '0' + s : s);
       }
     }, 1000);
   }
@@ -78,16 +157,16 @@
     'Энни не моя. Уточняю.',
     'Афелий приёмный. Уточняю.',
     'Сетт. Я знаю кто ты.',
-    'Война это лучшее что есть. После Беатриче.',
+    'Война — это лучшее что есть. После Беатриче.',
     'Я не молчу. Я обдумываю.',
     'Я отрезал руку. Окупилось.',
     'Если ты это читаешь — я уже знаю.',
   ];
   const q = document.getElementById('random-quote');
-  if (q) q.textContent = quotes[Math.floor(Math.random()*quotes.length)];
+  if (q) q.textContent = quotes[Math.floor(Math.random() * quotes.length)];
 })();
 
-// ============ RANDOM ADVICE ============
+// ============ ADVICE BUTTON ============
 (function () {
   const advices = [
     'не доверяй никому. особенно мне.',
@@ -106,8 +185,7 @@
   const out = document.getElementById('advice-out');
   if (btn && out) {
     btn.addEventListener('click', () => {
-      out.textContent = '« ' + advices[Math.floor(Math.random()*advices.length)] + ' »';
-      out.classList.add('show');
+      out.textContent = '« ' + advices[Math.floor(Math.random() * advices.length)] + ' »';
     });
   }
 })();
@@ -119,12 +197,13 @@
   const input = form.querySelector('input');
   const result = document.getElementById('search-result');
   const easter = {
-    'ирелия': '⚠️ ОБНАРУЖЕНО: ИРЕЛИЯ. наблюдение усилено в 9999 раз. Беатриче уже летит. бегите.',
-    'ireliya': '⚠️ ОБНАРУЖЕНО: ИРЕЛИЯ. наблюдение усилено в 9999 раз. Беатриче уже летит. бегите.',
-    'ле блан': '⚠️ ОБНАРУЖЕНО: ЛЕ БЛАН. ВРАГ КЛАССА А. ВЫ ЯВЛЯЕТЕСЬ ЕЁ КОПИЕЙ. КОТОРАЯ ИЗ ВАС НАСТОЯЩАЯ. РАЗБИРАЕМСЯ.',
-    'le blanc': '⚠️ ОБНАРУЖЕНО: ЛЕ БЛАН. ВРАГ КЛАССА А. ВЫ ЯВЛЯЕТЕСЬ ЕЁ КОПИЕЙ. КОТОРАЯ ИЗ ВАС НАСТОЯЩАЯ. РАЗБИРАЕМСЯ.',
-    'leblanc': '⚠️ ОБНАРУЖЕНО: ЛЕ БЛАН. ВРАГ КЛАССА А. ВЫ ЯВЛЯЕТЕСЬ ЕЁ КОПИЕЙ. КОТОРАЯ ИЗ ВАС НАСТОЯЩАЯ. РАЗБИРАЕМСЯ.',
-    'leblank': '⚠️ ОБНАРУЖЕНО: ЛЕ БЛАН. ВРАГ КЛАССА А. ВЫ ЯВЛЯЕТЕСЬ ЕЁ КОПИЕЙ. КОТОРАЯ ИЗ ВАС НАСТОЯЩАЯ. РАЗБИРАЕМСЯ.',
+    'ирелия': 'ОБНАРУЖЕНО: ИРЕЛИЯ. наблюдение усилено в 9999 раз. Беатриче уже летит. бегите.',
+    'ireliya': 'ОБНАРУЖЕНО: ИРЕЛИЯ. наблюдение усилено в 9999 раз. Беатриче уже летит. бегите.',
+    'irelia': 'ОБНАРУЖЕНО: ИРЕЛИЯ. наблюдение усилено в 9999 раз. Беатриче уже летит. бегите.',
+    'ле блан': 'ОБНАРУЖЕНО: ЛЕ БЛАН. ВРАГ КЛАССА А. ВЫ ЯВЛЯЕТЕСЬ ЕЁ КОПИЕЙ. КОТОРАЯ ИЗ ВАС НАСТОЯЩАЯ. РАЗБИРАЕМСЯ.',
+    'leblanc': 'ОБНАРУЖЕНО: ЛЕ БЛАН. ВРАГ КЛАССА А. ВЫ ЯВЛЯЕТЕСЬ ЕЁ КОПИЕЙ. КОТОРАЯ ИЗ ВАС НАСТОЯЩАЯ. РАЗБИРАЕМСЯ.',
+    'le blanc': 'ОБНАРУЖЕНО: ЛЕ БЛАН. ВРАГ КЛАССА А. ВЫ ЯВЛЯЕТЕСЬ ЕЁ КОПИЕЙ. КОТОРАЯ ИЗ ВАС НАСТОЯЩАЯ. РАЗБИРАЕМСЯ.',
+    'leblank': 'ОБНАРУЖЕНО: ЛЕ БЛАН. ВРАГ КЛАССА А. ВЫ ЯВЛЯЕТЕСЬ ЕЁ КОПИЕЙ. КОТОРАЯ ИЗ ВАС НАСТОЯЩАЯ. РАЗБИРАЕМСЯ.',
   };
   const generic = [
     'найдено 0 результатов. но вопрос интересный, наблюдение усилено.',
@@ -138,68 +217,110 @@
     const q = input.value.trim().toLowerCase();
     if (!q) return;
     const matched = easter[q];
-    result.textContent = matched || generic[Math.floor(Math.random()*generic.length)];
+    result.textContent = matched || generic[Math.floor(Math.random() * generic.length)];
     result.classList.add('show');
     input.value = '';
   });
 })();
 
-// ============ RAVEN WALL — clickable ============
+// ============ RAVEN WALL ============
 (function () {
   const wall = document.getElementById('raven-wall');
   if (!wall) return;
-  // Build wall
   const ravens = [];
   for (let i = 0; i < 80; i++) {
-    // every 17th raven is actually a duck — without explanation
-    ravens.push(i % 17 === 16 ? '🦆' : '🐦‍⬛');
+    ravens.push(i % 17 === 16 ? '🦆' : '🐦');
   }
-  wall.innerHTML = ravens.map(r => `<span class="raven">${r}</span>`).join(' ');
+  wall.innerHTML = ravens.map((r) => `<span class="raven">${r}</span>`).join(' ');
 
   let clicked = 0;
   const total = wall.querySelectorAll('.raven').length;
-  wall.querySelectorAll('.raven').forEach(r => {
+  wall.querySelectorAll('.raven').forEach((r) => {
     r.addEventListener('click', () => {
       if (r.classList.contains('clicked')) return;
       r.classList.add('clicked');
       clicked++;
       if (clicked >= total) {
         const msg = document.getElementById('raven-wall-msg');
-        if (msg) msg.textContent = '✓ всё, теперь Я тебя точно знаю. ждать.';
+        if (msg) msg.textContent = 'ВСЁ. ТЕПЕРЬ Я ТЕБЯ ТОЧНО ЗНАЮ. ЖДАТЬ.';
       }
     });
   });
 })();
 
-// ============ MEGA BUTTONS shake ============
-document.querySelectorAll('.mega-btn').forEach(b => {
-  b.addEventListener('click', e => {
-    if (b.dataset.real === '1') return; // не блокируем настоящие ссылки
-    e.preventDefault();
-    b.style.animation = 'shake 0.3s';
-    setTimeout(() => b.style.animation = '', 300);
-  });
-});
-
-// ============ FAKE IP for certificate ============
+// ============ FAKE IP ============
 (function () {
   const ipEl = document.getElementById('fake-ip');
   if (!ipEl) return;
-  const a = Math.floor(Math.random()*223)+1;
-  const b = Math.floor(Math.random()*255);
-  const c = Math.floor(Math.random()*255);
-  const d = Math.floor(Math.random()*255);
+  const a = Math.floor(Math.random() * 223) + 1;
+  const b = Math.floor(Math.random() * 255);
+  const c = Math.floor(Math.random() * 255);
+  const d = Math.floor(Math.random() * 255);
   ipEl.textContent = `${a}.${b}.${c}.${d}`;
 })();
 
-// ============ NIKO POPUP (для friends.html) ============
+// ============ VIDEO POPUP (patchnotes) ============
+(function () {
+  const trigger = document.getElementById('video-popup-trigger');
+  const overlay = document.getElementById('video-popup-overlay');
+  if (!trigger || !overlay) return;
+  const video = overlay.querySelector('video');
+
+  function showPopup() {
+    overlay.classList.add('show');
+    if (video) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    }
+  }
+  function hidePopup() {
+    overlay.classList.remove('show');
+    if (video) {
+      video.pause();
+    }
+  }
+
+  trigger.addEventListener('click', showPopup);
+  overlay.querySelectorAll('[data-close]').forEach((b) => {
+    b.addEventListener('click', hidePopup);
+  });
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) hidePopup();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('show')) hidePopup();
+  });
+})();
+
+// ============ DONOS FORM (contacts) ============
+(function () {
+  const form = document.getElementById('donos-form');
+  if (!form) return;
+  const result = document.getElementById('donos-result');
+  const responses = [
+    'донос принят. ваш номер в очереди: №48 291. ответа не ждите. ответа не будет.',
+    'передано через Беатриче. она задумалась. это плохой знак. для кого — узнаете позже.',
+    'обращение зарегистрировано. ваше имя добавлено в реестр. реестр чего — не уточняется.',
+    'спасибо за бдительность. вашу бдительность мы тоже отметили. наблюдение усилено.',
+    'ваше сообщение прочитано. два раза. третий раз — со скептицизмом. четвёртый — с раздражением.',
+  ];
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    result.textContent = responses[Math.floor(Math.random() * responses.length)];
+    result.classList.add('show');
+    form.reset();
+  });
+})();
+
+// ============ NIKO POPUP ============
 (function () {
   const overlay = document.getElementById('niko-overlay');
   if (!overlay) return;
 
+  const sound = document.getElementById('niko-sound');
+
   function showPopup() {
     overlay.classList.add('show');
-    const sound = document.getElementById('niko-sound');
     if (sound) {
       sound.currentTime = 0;
       sound.play().catch(() => {
@@ -212,17 +333,18 @@ document.querySelectorAll('.mega-btn').forEach(b => {
       });
     }
   }
+
   function hidePopup() {
     overlay.classList.remove('show');
-    const sound = document.getElementById('niko-sound');
-    if (sound) { sound.pause(); sound.currentTime = 0; }
+    if (sound) {
+      sound.pause();
+      sound.currentTime = 0;
+    }
   }
 
-  // показываем сразу
   showPopup();
 
-  // закрытие
-  overlay.querySelectorAll('[data-close]').forEach(b => {
+  overlay.querySelectorAll('[data-close]').forEach((b) => {
     b.addEventListener('click', hidePopup);
   });
   overlay.addEventListener('click', (e) => {

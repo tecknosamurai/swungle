@@ -3,79 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>СТРОИТСЯ · SWAIN.LOVE</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦‍⬛</text></svg>">
+<title>КОНТАКТЫ // СВЕЙН</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <video class="bg-video" autoplay loop muted playsinline>
-    <source src="background_1_.mp4" type="video/mp4">
-  </video>
-  <div class="bg-fallback"></div>
-  <div class="bg-overlay"></div>
 
-  <main>
-    <div class="marquee">
-      <div class="marquee-inner">
-        <span>⚠️ СТРАНИЦА В СТАДИИ ПОДГОТОВКИ · ВЕЛИКИЙ ГЕНЕРАЛ ЛИЧНО ПИШЕТ КОНТЕНТ</span>
-        <span>⏳ НАПИСАНИЕ ЗАЙМЁТ ВРЕМЯ · НЕ ТОРОПИТЕ ЕГО · ОН РАЗДРАЖАЕТСЯ</span>
-        <span>⚠️ СТРАНИЦА В СТАДИИ ПОДГОТОВКИ · ВЕЛИКИЙ ГЕНЕРАЛ ЛИЧНО ПИШЕТ КОНТЕНТ</span>
-        <span>⏳ НАПИСАНИЕ ЗАЙМЁТ ВРЕМЯ · НЕ ТОРОПИТЕ ЕГО · ОН РАЗДРАЖАЕТСЯ</span>
+<div id="cur">
+  <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 3C11 3 7 6.5 7 11C7 14.5 9 16 10 17L8 26L12.5 21.5L15 24L17.5 21.5L22 26L20 17C21 16 23 14.5 23 11C23 6.5 19 3 15 3Z" fill="#c01818" opacity=".92"/>
+    <circle cx="12" cy="10" r="1.3" fill="#f2ede4"/>
+    <path d="M7 9.5L3 7.5L7 11.5" fill="#c01818"/>
+  </svg>
+</div>
+<div id="cur-dot"></div>
+
+<div class="bg"></div>
+<div class="grain"></div>
+<div class="scanlines"></div>
+<div class="vignette"></div>
+
+<main>
+
+  <nav class="topbar" id="topbar">
+    <div class="left">
+      <a href="index.html" class="brand">СВЕЙН</a>
+      <a href="enemies.html" class="hide-m">Враги</a>
+      <a href="shop.html" class="hide-m">Магазин</a>
+      <a href="patchnotes.html" class="hide-m">Патчноут</a>
+      <a href="decrees.html" class="hide-m">Указы</a>
+      <a href="blog.html" class="hide-m">Блог</a>
+      <a href="friends.html" class="hide-m">Друзья</a>
+      <a href="contacts.html" class="hide-m active">Контакты</a>
+      <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
+    </div>
+    <div class="topbar-right">НОКСУС · ПАТЧ ТЕКУЩИЙ · ПОВИНУЙСЯ</div>
+    <button class="burger" id="burger" aria-label="меню"><span></span><span></span><span></span></button>
+    <div class="mobile-menu" id="mmenu">
+      <a href="index.html">Главная</a>
+      <a href="enemies.html">Враги</a>
+      <a href="shop.html">Магазин</a>
+      <a href="patchnotes.html">Патчноут</a>
+      <a href="decrees.html">Указы</a>
+      <a href="blog.html">Блог</a>
+      <a href="friends.html">Друзья</a>
+      <a href="contacts.html" class="active">Контакты</a>
+      <a href="family.html" class="danger">не нажимать</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrap" style="min-height: auto;">
+    <div class="plx">
+      <div class="plx-text-bg" style="font-size: 30vw;">СВЯЗЬ</div>
+    </div>
+    <section class="hero single" style="min-height: auto; padding-top: 90px; padding-bottom: 40px;">
+      <div class="hero-left" style="margin: 0 auto;">
+        <div class="kicker">◢ канал связи · односторонний</div>
+        <h1 style="font-size: clamp(56px, 11vw, 160px);">
+          мои <span class="h1-red" data-t="КОНТАКТЫ" style="transform: none; display: inline-block;">контакты</span>
+        </h1>
+        <p class="manifesto center" style="margin-left: auto; margin-right: auto;">
+          ниже — все возможные способы со <span class="me">мной</span> связаться.
+          <em>ни один из них не работает</em>. это сделано намеренно.
+          (если бы они работали — все бы писали.)
+        </p>
       </div>
+    </section>
+  </div>
+
+  <!-- TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>не пиши</span>
+      <span>не звони</span>
+      <span>не приходи</span>
+      <span>я сам тебя найду</span>
+      <span>не пиши</span>
+      <span>не звони</span>
+      <span>не приходи</span>
+      <span>я сам тебя найду</span>
+    </div>
+  </div>
+
+  <!-- CONTACTS -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">официальные каналы</div>
+      <h2 class="sec-h2">как со <em>мной</em><br>не связаться.</h2>
+      <p class="sec-lede">указано для протокола. использование — на свой страх и риск. наблюдение усилено по умолчанию.</p>
     </div>
 
-    <nav class="topnav">
-      <a href="index.html" class="brand">SWAIN<span class="heart">.LOVE</span></a>
-      <div class="topnav-links">
-        <a href="index.html">главная</a>
-        <a href="enemies.html">враги народа</a>
-        <a href="shop.html">магазин</a>
-        <a href="patchnotes.html">патчноут</a>
-        <a href="decrees.html">указы</a>
-        <a href="blog.html">блог</a>
-        <a href="friends.html">друзья</a>
-        <a href="contacts.html">контакты</a>
-        <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
-      </div>
-    </nav>
+    <div class="reveal" style="max-width: 880px;">
 
-    <section class="hero">
-      <div class="crown">⚠️</div>
-      <div class="pre-title">⚒️ В РАЗРАБОТКЕ ⚒️</div>
-      <h1 style="font-size: clamp(48px, 10vw, 120px);">СКОРО</h1>
-      <div class="tagline">эта страница пока не готова. <span class="me">я</span> работаю над ней. <span class="strike">не торопи</span> подожди.</div>
-    </section>
-
-    <section class="section">
-      <div class="box bone tilted" style="text-align: center;">
-        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.6;">
-          контент будет добавлен в одной из следующих итераций. до тех пор —
-          возвращайся на <a href="index.html" style="color: var(--blood);">главную</a> или
-          посмотри <a href="friends.html" style="color: var(--gold);">друзей</a>.
-        </p>
-        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.6; margin-top: 16px;">
-          (страница <a href="family.html" class="strike" style="color: var(--bone);">family.html</a> технически существует но <span class="me">я</span> её не показываю. это служебное.)
-        </p>
-        <span class="signature">Я</span>
+      <div class="contact-row">
+        <div class="label">email</div>
+        <div class="value">
+          ne@pishi.mne
+          <small>(адрес настоящий. почту никто не читает. Беатриче собирает в одну папку. папка большая.)</small>
+        </div>
       </div>
-    </section>
 
-    <div class="marquee bottom">
-      <div class="marquee-inner">
-        <span>POSHOL NAHUY DEMACIA 🤝</span>
-        <span>СКОРО ВСЁ БУДЕТ ✦</span>
-        <span>БЕАТРИЧЕ ЖДЁТ ✦</span>
-        <span>POSHOL NAHUY DEMACIA 🤝</span>
-        <span>СКОРО ВСЁ БУДЕТ ✦</span>
-        <span>БЕАТРИЧЕ ЖДЁТ ✦</span>
+      <div class="contact-row">
+        <div class="label">телефон</div>
+        <div class="value">
+          <span class="me">я</span> тебе сам позвоню
+          <small>(если потребуется. это решаю <span class="me">я</span>. не ты. не пытайся набрать первый — у меня нет телефона.)</small>
+        </div>
       </div>
+
+      <div class="contact-row">
+        <div class="label">факс</div>
+        <div class="value">
+          +0 (000) 000-00-00
+          <small>(работает. но факс приходит лично ко мне в чёрный омут. оттуда не возвращается.)</small>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="label">локация</div>
+        <div class="value">
+          ноксус. чёрный омут. <span class="strike">третий этаж</span> там где темно.
+          <small>(приходить нельзя. можно посмотреть издалека. но — <em>я</em> увижу.)</small>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="label">часы приёма</div>
+        <div class="value">
+          никогда
+          <small>(приём отменён бессрочно. персональная аудиенция — только через <a href="shop.html" style="color: var(--blood);">магазин</a> за €50 000.)</small>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="label">соцсети</div>
+        <div class="value">
+          отсутствуют
+          <small>(<span class="me">я</span> не зарегистрирован нигде. все аккаунты «Великий Генерал Свейн» — фейковые. Беатриче преследует мошенников.)</small>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="label">пресс-секретарь</div>
+        <div class="value">
+          беатриче
+          <small>(не разговаривает. клюёт. интервью невозможно. если она что-то сказала — записывайте дословно. <em>kar.</em>)</small>
+        </div>
+      </div>
+
+      <div class="contact-row">
+        <div class="label">экстренная связь</div>
+        <div class="value">
+          закричите в окно
+          <small>(<span class="me">я</span> услышу. <span class="me">я</span> всегда слышу. но <em>не отвечу</em>. учитесь решать сами.)</small>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DONOS FORM -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">официальный канал · донос</div>
+      <h2 class="sec-h2">сообщить <em>о ком-то</em>.</h2>
+      <p class="sec-lede">единственный работающий канал связи. вы пишете о ком-то — ваше сообщение попадает в реестр.<br>(о вас тоже попадает. бонусом.)</p>
     </div>
 
-    <footer class="bottom">
-      <div>© SWAIN.LOVE · СТРАНИЦА ЕЩЁ ПИШЕТСЯ · НЕ ТОРОПИТЕ Я</div>
-    </footer>
-  </main>
+    <div class="reveal" style="max-width: 720px;">
+      <form class="donos-form" id="donos-form">
+        <div>
+          <label for="donos-name">ваше имя · необязательно</label>
+          <input id="donos-name" type="text" placeholder="можно вымышленное · мы и так узнаем настоящее" autocomplete="off">
+        </div>
+        <div>
+          <label for="donos-target">на кого донос</label>
+          <input id="donos-target" type="text" placeholder="имя/ник предателя/любого" autocomplete="off" required>
+        </div>
+        <div>
+          <label for="donos-text">в чём суть</label>
+          <textarea id="donos-text" placeholder="опишите подробно. чем подробнее — тем выше приоритет. приоритет всё равно низкий, но." required></textarea>
+        </div>
+        <div>
+          <button type="submit" class="cta-btn" style="margin-top: 8px;"><span>отправить · через беатриче</span></button>
+        </div>
+        <div class="donos-result" id="donos-result"></div>
+      </form>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- FAQ -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">часто задаваемые вопросы</div>
+      <h2 class="sec-h2">по поводу <em>связи</em>.</h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">а если очень нужно?</div>
+        <div class="tile-body">не нужно. вам кажется. посидите, подумайте — желание пройдёт.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">я хочу предложить сотрудничество</div>
+        <div class="tile-body">сотрудничество предлагает <span class="me">я</span>. если <span class="me">я</span> не предложил — значит <span class="me">я</span> уже отказал.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">я хочу пожаловаться</div>
+        <div class="tile-body">принято. жалоба зарегистрирована. ничего не изменится. <em>но</em> вы будете знать что попытались.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">я хочу выразить любовь</div>
+        <div class="tile-body">я ценю. но не отвечаю. (Беатриче — единственное исключение. её ответы — kar.)</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">картус, это ты?</div>
+        <div class="tile-body">если ты Картус — <em>иди мыть посуду</em>. <span class="me">я</span> приду когда смогу. (не приду.)</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">тимо, ты опять?</div>
+        <div class="tile-body"><em>я не дедуля.</em> прекрати. печенье <span class="me">я</span> не ем. иди делай уроки.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>не пиши я</span>
+      <span>я сам найду</span>
+      <span>беатриче знает где ты</span>
+      <span>не пиши я</span>
+      <span>я сам найду</span>
+      <span>беатриче знает где ты</span>
+    </div>
+  </div>
+
+  <footer class="bottom">
+    <div>© SWAIN.LOVE · КОНТАКТЫ · ОДНОСТОРОННЯЯ СВЯЗЬ</div>
+    <div>не пишите · не звоните · не пытайтесь · удачи</div>
+    <div class="secret"><a href="family.html">.</a></div>
+  </footer>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

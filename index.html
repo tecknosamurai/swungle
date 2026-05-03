@@ -3,265 +3,369 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SWAIN.LOVE · официальный сайт Великого Генерала</title>
-<meta name="description" content="Привет. Я Свейн. Это мой сайт.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦‍⬛</text></svg>">
+<title>СВЕЙН // ВЕЛИКИЙ ГЕНЕРАЛ</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <video class="bg-video" autoplay loop muted playsinline>
-    <source src="background_1_.mp4" type="video/mp4">
-  </video>
-  <div class="bg-fallback"></div>
-  <div class="bg-overlay"></div>
 
-  <main>
+<!-- cursor -->
+<div id="cur">
+  <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 3C11 3 7 6.5 7 11C7 14.5 9 16 10 17L8 26L12.5 21.5L15 24L17.5 21.5L22 26L20 17C21 16 23 14.5 23 11C23 6.5 19 3 15 3Z" fill="#c01818" opacity=".92"/>
+    <circle cx="12" cy="10" r="1.3" fill="#f2ede4"/>
+    <path d="M7 9.5L3 7.5L7 11.5" fill="#c01818"/>
+  </svg>
+</div>
+<div id="cur-dot"></div>
 
-    <!-- TOP MARQUEE -->
-    <div class="marquee">
-      <div class="marquee-inner">
-        <span>🐦‍⬛ БЕАТРИЧЕ ПРИНЕСЛА ПИСЬМО ОТ ГАРЕНА. ОН ПРОСИТ ПОЩАДЫ. ОТКАЗАНО.</span>
-        <span>ВЕЛИКИЙ ГЕНЕРАЛ ПРОСНУЛСЯ В ХОРОШЕМ НАСТРОЕНИИ. КТО-ТО УМРЁТ.</span>
-        <span>ИОНИЯ ОПЯТЬ НЕ ОТВЕЧАЕТ НА ЗВОНКИ. ПОДОЗРИТЕЛЬНО.</span>
-        <span>ДЕМАСИЯ ПОШЛА НАХУЙ.</span>
-        <span>🐦‍⬛ БЕАТРИЧЕ ПРИНЕСЛА ПИСЬМО ОТ ГАРЕНА. ОН ПРОСИТ ПОЩАДЫ. ОТКАЗАНО.</span>
-        <span>ВЕЛИКИЙ ГЕНЕРАЛ ПРОСНУЛСЯ В ХОРОШЕМ НАСТРОЕНИИ. КТО-ТО УМРЁТ.</span>
-        <span>ИОНИЯ ОПЯТЬ НЕ ОТВЕЧАЕТ НА ЗВОНКИ. ПОДОЗРИТЕЛЬНО.</span>
-        <span>ДЕМАСИЯ ПОШЛА НАХУЙ.</span>
+<!-- background layers -->
+<div class="bg"></div>
+<div class="grain"></div>
+<div class="scanlines"></div>
+<div class="vignette"></div>
+
+<main>
+
+  <!-- TOPBAR -->
+  <nav class="topbar" id="topbar">
+    <div class="left">
+      <a href="index.html" class="brand">СВЕЙН</a>
+      <a href="enemies.html" class="hide-m">Враги</a>
+      <a href="shop.html" class="hide-m">Магазин</a>
+      <a href="patchnotes.html" class="hide-m">Патчноут</a>
+      <a href="decrees.html" class="hide-m">Указы</a>
+      <a href="blog.html" class="hide-m">Блог</a>
+      <a href="friends.html" class="hide-m">Друзья</a>
+      <a href="contacts.html" class="hide-m">Контакты</a>
+      <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
+    </div>
+    <div class="topbar-right">НОКСУС · ПАТЧ ТЕКУЩИЙ · ПОВИНУЙСЯ</div>
+    <button class="burger" id="burger" aria-label="меню"><span></span><span></span><span></span></button>
+    <div class="mobile-menu" id="mmenu">
+      <a href="index.html" class="active">Главная</a>
+      <a href="enemies.html">Враги</a>
+      <a href="shop.html">Магазин</a>
+      <a href="patchnotes.html">Патчноут</a>
+      <a href="decrees.html">Указы</a>
+      <a href="blog.html">Блог</a>
+      <a href="friends.html">Друзья</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="family.html" class="danger">не нажимать</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrap">
+    <div class="plx">
+      <div class="plx-blob-1"></div>
+      <div class="plx-blob-2"></div>
+    </div>
+    <div class="plx">
+      <div class="plx-text-bg">НОКСУС</div>
+    </div>
+    <section class="hero">
+      <div class="hero-left">
+        <div class="kicker">◢ орден ворона · основан очень давно</div>
+        <h1>
+          <span>СВЕЙН</span>
+          <span class="h1-red" data-t="ВИДИТ">ВИДИТ</span>
+          <span class="h1-outline">ВСЁ</span>
+        </h1>
+        <p class="manifesto">
+          <span class="me">Я</span> просто смотрю. <span class="me">Я</span> всегда смотрел.
+          Твой клик был предрешён ещё до того, как ты открыл браузер.
+          Этот сайт — продолжение наблюдения. Беатриче ведёт картотеку. <span class="strike">привет</span> повинуйся.
+        </p>
       </div>
+      <div class="hero-right">
+        <div class="stamps">
+          <div class="stamp">
+            <div class="lbl">↳ наблюдений сегодня</div>
+            <div class="big" id="cnt-hanged">0</div>
+            <div class="lbl">собрано перьев</div>
+          </div>
+          <div class="stamp stamp-w">
+            <div class="lbl">↳ индекс лояльности</div>
+            <div class="big">98.2%</div>
+            <div class="lbl">остальные 1.8 уже отмечены</div>
+          </div>
+          <div class="stamp">
+            <div class="lbl">↳ текущий винрейт</div>
+            <div class="big">53.4%</div>
+            <div class="lbl">мид · патч текущий</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>повинуйся великому генералу</span>
+      <span>беатриче не спит</span>
+      <span>swain.love наблюдает</span>
+      <span>poshol nahuy demacia</span>
+      <span>повинуйся великому генералу</span>
+      <span>беатриче не спит</span>
+      <span>swain.love наблюдает</span>
+      <span>poshol nahuy demacia</span>
+    </div>
+  </div>
+
+  <!-- COUNTERS / DOSSIER -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">досье · текущая статистика</div>
+      <h2 class="sec-h2">я <em>наблюдаю</em>. <br>цифры обновляются.</h2>
+      <p class="sec-lede">данные собирает Беатриче. лично. без посредников. погрешность — допустима. правда — нет.</p>
     </div>
 
-    <!-- NAVIGATION -->
-    <nav class="topnav">
-      <a href="index.html" class="brand">SWAIN<span class="heart">.LOVE</span></a>
-      <div class="topnav-links">
-        <a href="index.html">главная</a>
-        <a href="enemies.html">враги народа</a>
-        <a href="shop.html">магазин</a>
-        <a href="patchnotes.html">патчноут</a>
-        <a href="decrees.html">указы</a>
-        <a href="blog.html">блог</a>
-        <a href="friends.html">друзья</a>
-        <a href="contacts.html">контакты</a>
-        <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+      <div class="tile reveal">
+        <div class="tile-stamp">рассекречено</div>
+        <div class="tile-num" id="cnt-souls">8 472</div>
+        <div class="tile-title">осколков<br>душ собрано</div>
+        <div class="tile-body">по плану — больше. Беатриче собирает остаток. <span class="me">я</span> наблюдаю процесс.</div>
+        <div class="tile-meta">обновляется ежесекундно</div>
       </div>
-    </nav>
+      <div class="tile reveal">
+        <div class="tile-stamp">верифицировано</div>
+        <div class="tile-num" id="cnt-yasuo">91</div>
+        <div class="tile-title">ясуо умерло<br>за час</div>
+        <div class="tile-body">(хорошо.) каждая смерть фиксируется. список длиннее чем кажется.</div>
+        <div class="tile-meta">сводка от беатриче · 14:47</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-stamp">не обнуляется</div>
+        <div class="tile-num" id="cnt-support">0</div>
+        <div class="tile-title">секунд<br>без саппорта</div>
+        <div class="tile-body">вашего саппорта нет в лейне. <span class="me">я</span> заметил. он отмечен. встреча состоится.</div>
+        <div class="tile-meta">счётчик начался при загрузке</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-stamp">персонально</div>
+        <div class="tile-num" id="irritation" style="font-size: 30px; padding-top: 8px;">1 / 10</div>
+        <div class="tile-title">степень моего<br>раздражения тобой</div>
+        <div class="tile-body">растёт пока ты на сайте. <span class="me">я</span> не пытаюсь это скрыть.</div>
+        <div class="tile-meta">оценка субъективная · моя</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-stamp">прямо сейчас</div>
+        <div class="tile-num" id="mood-now" style="font-size: 22px; padding-top: 12px; line-height: 1.1;">НАБЛЮДАЕТ</div>
+        <div class="tile-title">настроение<br>генерала</div>
+        <div class="tile-body">меняется каждые несколько секунд. как и моё мнение о тебе.</div>
+        <div class="tile-meta">пересмотр каждые ~3 сек</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-stamp">обратный отсчёт</div>
+        <div class="tile-num" id="coup-countdown">3:00</div>
+        <div class="tile-title">до следующего<br>переворота</div>
+        <div class="tile-body">обнуляется. жизнь продолжается. правительство — не всегда.</div>
+        <div class="tile-meta">расписание плавающее</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="pre-title">━━━ ОФИЦИАЛЬНЫЙ САЙТ ━━━</div>
-      <h1>СВЕЙН</h1>
-      <div class="tagline">Великий Генерал Ноксуса. <span class="me">Я</span>. Это <span class="me">мой</span> сайт. <span class="strike">привет</span> повинуйся.</div>
-      <div class="ravens-row">🐦‍⬛ 🐦‍⬛ 🐦‍⬛ 🐦‍⬛ 🐦‍⬛</div>
-      <div class="chat-indicator"><span class="dots">Свейн печатает</span></div>
-    </section>
+  <!-- BIO / ОБО МНЕ -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">досье · биография</div>
+      <h2 class="sec-h2">обо <em>мне</em>. <br>написано <em>мной</em>.</h2>
+      <p class="sec-lede">источник: <span class="me">я</span> лично. википедия отклонена. история переписана.</p>
+    </div>
 
-    <!-- COUNTERS -->
-    <section class="section">
-      <h2 class="section-title">СТАТИСТИКА</h2>
-      <div class="section-sub">— ОБНОВЛЯЕТСЯ В РЕАЛЬНОМ ВРЕМЕНИ · БЕАТРИЧЕ СЛЕДИТ —</div>
-      <div class="counters">
-        <div class="counter-card">
-          <div class="lbl">повешено врагов народа сегодня</div>
-          <div class="val" id="cnt-hanged">0</div>
-          <div class="sub">данные обновляются каждую секунду</div>
+    <div class="doctrine reveal">
+      <div class="doctrine-sticky">персона N° 001<br>версия каноническая</div>
+      <div class="tenets">
+        <div class="tenet">
+          <div class="t-num">I</div>
+          <div class="t-body">
+            <h3>Кто <span class="me">я</span></h3>
+            <p>
+              Великий Генерал Свейн Достопочтенный Бесконечный. <span class="me">Я</span>. Один. <span class="strike">Чемпион League of Legends</span> верховный правитель Ноксуса, мидлайнер, диктатор, философ, <a href="friends.html" style="color: var(--blood);">муж Беатриче</a>. Имею одну руку. Вторая отдана. Кому — не ваше дело.
+            </p>
+          </div>
         </div>
-        <div class="counter-card">
-          <div class="lbl">осколков душ собрано</div>
-          <div class="val" id="cnt-souls">0</div>
-          <div class="sub">по плану — больше</div>
+        <div class="tenet">
+          <div class="t-num">II</div>
+          <div class="t-body">
+            <h3>Где <span class="me">я</span></h3>
+            <p>
+              Родился в Ноксусе. Точная дата не разглашается потому что <span class="me">я</span> так сказал. Возглавляю Ноксус, <span class="strike">консультирую</span> уничтожаю <a href="enemies.html" style="color: var(--blood);">Демасию</a>, владею интернет-сайтом swain.love. Также возможно владею половиной Ионии но они отказываются это признавать.
+            </p>
+          </div>
         </div>
-        <div class="counter-card">
-          <div class="lbl">ясуо умерло за последний час</div>
-          <div class="val" id="cnt-yasuo">0</div>
-          <div class="sub">(хорошо)</div>
+        <div class="tenet">
+          <div class="t-num">III</div>
+          <div class="t-body">
+            <h3>Чем <span class="me">я</span> известен</h3>
+            <p>
+              Свержением правительства (своего и чужих). Отрезанной рукой. Постоянным наблюдением. Также известен как: <i>Жнец Ноксуса</i>, <i>Тиран</i>, <i>Тот Кто Видит</i>, <i>Дедуля</i> (только <a href="family.html" style="color: var(--blood);">Тимо</a> так называет, и это <span class="strike">мило</span> неприемлемо).
+            </p>
+          </div>
         </div>
-        <div class="counter-card">
-          <div class="lbl">вашего саппорта нет в лейне уже</div>
-          <div class="val" id="cnt-support">0</div>
-          <div class="sub">секунд · счётчик НЕ обнуляется</div>
-        </div>
-        <div class="counter-card">
-          <div class="lbl">настроение генерала прямо сейчас</div>
-          <div class="val" id="mood-now" style="font-size: 32px;">наблюдает</div>
-          <div class="sub">меняется каждые несколько секунд</div>
-        </div>
-        <div class="counter-card">
-          <div class="lbl">степень моего раздражения тобой</div>
-          <div class="val" id="irritation">1 / 10</div>
-          <div class="sub">растёт пока ты тут</div>
-        </div>
-        <div class="counter-card">
-          <div class="lbl">до следующего переворота</div>
-          <div class="val" id="coup-countdown">3:00</div>
-          <div class="sub">обнуляется. жизнь продолжается.</div>
+        <div class="tenet">
+          <div class="t-num">IV</div>
+          <div class="t-body">
+            <h3>Что <span class="me">я</span> люблю</h3>
+            <p>
+              Беатриче. Войну. Молчание. Когда враг бежит. Когда саппорт остаётся в лейне. Любимый цвет — красный (моей крови меньше всего). Любимая еда — страдания Демасии. Семейное положение: <span class="strike">осложнённое</span> женат на Беатриче.
+            </p>
+            <span class="signature">Я</span>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- BIO WIKIPEDIA STYLE -->
-    <section class="section">
-      <h2 class="section-title">ОБО МНЕ</h2>
-      <div class="section-sub">— ИСТОЧНИК: Я ЛИЧНО · ВИКИПЕДИЯ ОТКЛОНЕНА · НАПИСАНО ЗАНОВО —</div>
-      <div class="bio">
-        <h3>Свейн</h3>
-        <div class="infobox">
-          <h4>СВЕЙН</h4>
-          <dt>Полное имя</dt>
-          <dd>Великий Генерал Свейн Достопочтенный Бесконечный</dd>
-          <dt>Род занятий</dt>
-          <dd>Великий Генерал, мидлайнер, муж Беатриче</dd>
-          <dt>Родился</dt>
-          <dd>В Ноксусе. Точная дата не разглашается.</dd>
-          <dt>Известен</dt>
-          <dd>Свержением правительства, отрезанной рукой, постоянным наблюдением</dd>
-          <dt>Любимый цвет</dt>
-          <dd>Красный (моей крови меньше всего)</dd>
-          <dt>Любимая еда</dt>
-          <dd>Страдания Демасии</dd>
-          <dt>Семейное положение</dt>
-          <dd>Женат на Беатриче. <span class="strike">На Картус тоже</span> технически на двух</dd>
-          <dt>Питомец</dt>
-          <dd>Беатриче (она же жена)</dd>
-        </div>
-        <p>
-          <b>Свейн</b> (полное имя: <i>Великий Генерал Свейн Достопочтенный Бесконечный</i>) — это <span class="me">я</span>. <span class="strike">Чемпион League of Legends</span> ВЕЛИКИЙ ГЕНЕРАЛ, мидлайнер, диктатор, философ и муж <a href="friends.html">Беатриче</a>.
-        </p>
-        <p>
-          Родился в Ноксусе. Точная дата рождения не разглашается потому что <span class="me">я</span> так сказал. Имеет одну руку. Вторую отдал. Кому — не ваше дело.
-        </p>
-        <p>
-          На текущий момент возглавляет <a href="#">Ноксус</a>, <span class="strike">консультирует</span> УНИЧТОЖАЕТ <a href="enemies.html">Демасию</a>, и владеет интернет-сайтом <a href="index.html">swain.love</a> который <span class="me">я</span> веду <span class="strike">сам</span> с помощью Беатриче. Также возможно владеет половиной Ионии но они отказываются это признавать.
-        </p>
-        <p>
-          Известен также как: <i>Жнец Ноксуса</i>, <i>Тиран</i>, <i>Великий Генерал</i>, <i>Тот Кто Видит</i>, <i>Дедуля</i> (только <a href="family.html">Тимо</a> так называет, и это <span class="strike">мило</span> неприемлемо).
-        </p>
-        <p class="signature">Я</p>
-      </div>
-    </section>
+  <!-- NEWS -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">сводка · новости от беатриче</div>
+      <h2 class="sec-h2">что <em>сегодня</em>.</h2>
+      <p class="sec-lede">источник: ворон. достоверность: абсолютная. возражения: не принимаются.</p>
+    </div>
 
-    <!-- NEWS FROM BEATRICE -->
-    <section class="section">
-      <h2 class="section-title">НОВОСТИ ОТ БЕАТРИЧЕ</h2>
-      <div class="section-sub">— ОБНОВЛЯЕТСЯ ЕЖЕДНЕВНО · ИСТОЧНИК: ВОРОН —</div>
+    <div class="news-grid reveal">
       <div class="news-item">
-        <div class="timestamp">сегодня · 14:47 · ноксус</div>
-        🐦‍⬛ <b>ИОНИЯ ОПЯТЬ ОБИДЕЛАСЬ.</b> почему. <span class="me">Я</span> не звонил. <span class="me">Я</span> ничего не сделал. (<span class="whisper">сделал</span>.) Беатриче выясняет за что.
+        <span class="timestamp">14:47 · ноксус</span>
+        🐦 <b>иония опять обиделась.</b> почему. <span class="me">я</span> не звонил. <span class="me">я</span> ничего не сделал. (<span class="whisper">сделал.</span>) Беатриче выясняет за что.
       </div>
       <div class="news-item">
-        <div class="timestamp">сегодня · 13:22 · бой у моста</div>
-        🐦‍⬛ <b>ПИТОМЕЦ ГАРЕНА ЭТО СОБАКА.</b> и она умнее своего хозяина. подтверждено независимым расследованием. (расследовала Беатриче.)
+        <span class="timestamp">13:22 · бой у моста</span>
+        🐦 <b>питомец гарена это собака.</b> и она умнее своего хозяина. подтверждено независимым расследованием. (расследовала Беатриче.)
       </div>
       <div class="news-item">
-        <div class="timestamp">сегодня · 11:08 · вне лейна</div>
-        🐦‍⬛ <b>ВРАЖЕСКИЙ ЛЕСНИК ВНОВЬ НЕ НАЙДЕН.</b> отсутствует уже 47 секунд. саппорт также отсутствует. совпадение? <span class="me">Я</span> думаю нет.
+        <span class="timestamp">11:08 · вне лейна</span>
+        🐦 <b>вражеский лесник вновь не найден.</b> отсутствует уже 47 секунд. саппорт также отсутствует. совпадение? <span class="me">я</span> думаю нет.
       </div>
       <div class="news-item">
-        <div class="timestamp">сегодня · 09:15 · омут</div>
-        🐦‍⬛ <b>ВОРОН РАЗВЁЛСЯ С ЖЕНОЙ.</b> алименты — перья. (это была шутка. Беатриче такого никогда не сделает. да Беатриче? <span class="whisper">да Беатриче?</span>)
+        <span class="timestamp">09:15 · омут</span>
+        🐦 <b>ворон развёлся с женой.</b> алименты — перья. это была шутка. Беатриче такого никогда не сделает. <span class="whisper">да Беатриче?</span>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ACHIEVEMENTS -->
-    <section class="section">
-      <h2 class="section-title">МОИ ДОСТИЖЕНИЯ СЕГОДНЯ</h2>
-      <div class="section-sub">— СПИСОК ОБНОВЛЯЕТСЯ ПО МЕРЕ ВЫПОЛНЕНИЯ —</div>
-      <div class="box bone">
-        <ul class="achievement-list">
-          <li>позавтракал. Беатриче принесла. вкусно.</li>
-          <li>наблюдал из окна (восточного).</li>
-          <li>наблюдал из окна (западного).</li>
-          <li>свергнул правительство. <span class="whisper">мелкое.</span></li>
-          <li>уничтожил Демасию. <span class="strike">опять</span> в 247-й раз.</li>
-          <li>проигнорировал Картус. он помыл посуду. <span class="me">Я</span> не пришёл.</li>
-          <li>не съел печенье от Тимо. он плакал. <span class="me">Я</span> не дрогнул.</li>
-          <li>заблокировал Афелия (мммммм мггг).</li>
-          <li>покормил Беатриче. она довольна. <span class="me">Я</span> доволен.</li>
-          <li>обновил этот сайт. <span class="strike">случайно</span> намеренно.</li>
-        </ul>
-      </div>
-    </section>
+  <!-- ACHIEVEMENTS -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">сводка · мой день</div>
+      <h2 class="sec-h2">мои <em>достижения</em><br>сегодня.</h2>
+      <p class="sec-lede">список обновляется по мере выполнения. план перевыполнен. как обычно.</p>
+    </div>
 
-    <!-- QUOTE -->
-    <section class="quote-block">
-      <div class="q" id="random-quote">Не моё. Но будет.</div>
-      <div class="att">— Я</div>
-    </section>
+    <ul class="achievements reveal">
+      <li>позавтракал. Беатриче принесла. вкусно.</li>
+      <li>наблюдал из окна (восточного).</li>
+      <li>наблюдал из окна (западного).</li>
+      <li>свергнул правительство. <span class="whisper">мелкое.</span></li>
+      <li>уничтожил Демасию. <span class="strike">опять</span> в 247-й раз.</li>
+      <li>проигнорировал Картус. он помыл посуду. <span class="me">я</span> не пришёл.</li>
+      <li>не съел печенье от Тимо. он плакал. <span class="me">я</span> не дрогнул.</li>
+      <li>заблокировал Афелия (мммммм мггг).</li>
+      <li>покормил Беатриче. она довольна. <span class="me">я</span> доволен.</li>
+      <li>обновил этот сайт. <span class="strike">случайно</span> намеренно.</li>
+    </ul>
+  </section>
 
-    <!-- ADVICE BUTTON -->
-    <section class="section" style="text-align: center;">
-      <h2 class="section-title">СОВЕТ ОТ ГЕНЕРАЛА</h2>
-      <div class="section-sub">— НАЖМИ КНОПКУ · ПОЛУЧИ СОВЕТ · ПОЖИВЁШЬ ДОЛЬШЕ —</div>
-      <button class="mega-btn" id="advice-btn">ДАЙ СОВЕТ</button>
-      <div id="advice-out" class="search-result"></div>
-    </section>
+  <!-- QUOTE -->
+  <div class="quote-block reveal">
+    <div class="q" id="random-quote">Не моё. Но будет.</div>
+    <div class="att">— Я</div>
+  </div>
 
-    <!-- RAVEN WALL -->
-    <h2 class="section-title" style="margin-top: 80px;">СТЕНА ВОРОНОВ</h2>
-    <div class="section-sub" style="margin-bottom: 16px;">— КЛИКНИ НА КАЖДОГО · ИНОГДА ПОПАДАЕТСЯ <span style="color: var(--bone);">УТКА</span> · НЕ СПРАШИВАЙ —</div>
-    <div class="raven-wall" id="raven-wall"></div>
-    <div style="text-align: center; padding: 16px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--gold);" id="raven-wall-msg"></div>
+  <!-- ADVICE BUTTON -->
+  <section class="block">
+    <div class="reveal" style="text-align: center;">
+      <div class="sec-label" style="margin-bottom: 18px;">сервис · совет от генерала</div>
+      <h2 class="sec-h2" style="text-align: center;">нажми. <em>получи</em>.</h2>
+      <p class="sec-lede" style="margin-left: auto; margin-right: auto; text-align: center;">кнопка одна. ответы — разные. поживёшь дольше.</p>
+      <button class="cta-btn" id="advice-btn"><span>дай совет</span></button>
+      <div class="cta-out" id="advice-out"></div>
+    </div>
+  </section>
 
-    <!-- FAKE SEARCH -->
-    <section class="section">
-      <h2 class="section-title">ПОИСК ПО САЙТУ</h2>
-      <div class="section-sub">— ИЩИ ЧТО ХОЧЕШЬ · РЕЗУЛЬТАТЫ ПЕРЕДАЮТСЯ ЛИЧНО —</div>
+  <!-- RAVEN WALL -->
+  <div class="reveal" style="text-align: center; padding: 0 40px 16px;">
+    <div class="sec-label">наблюдательный пост · стена воронов</div>
+    <h2 class="sec-h2" style="margin-bottom: 12px;">кликай <em>каждого</em>.</h2>
+    <p class="sec-lede" style="margin-left: auto; margin-right: auto;">иногда попадается <span style="color: var(--bone);">утка</span>. не спрашивай.</p>
+  </div>
+  <div class="raven-wall" id="raven-wall"></div>
+  <div style="text-align: center; padding: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--blood); letter-spacing: 0.18em; min-height: 24px;" id="raven-wall-msg"></div>
+
+  <!-- SEARCH -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">поиск по сайту</div>
+      <h2 class="sec-h2">ищи <em>что хочешь</em>.</h2>
+      <p class="sec-lede">результаты передаются лично. форма ответа — на усмотрение генерала.</p>
+    </div>
+    <div class="reveal">
       <form class="search-fake" id="fake-search">
         <input type="text" placeholder="например: Ирелия (но не надо)" autocomplete="off">
-        <button type="submit">ИСКАТЬ</button>
+        <button type="submit">искать</button>
       </form>
       <div class="search-result" id="search-result"></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- CERTIFICATE OF LOYALTY -->
-    <section class="section">
-      <h2 class="section-title">ВАШ СЕРТИФИКАТ</h2>
-      <div class="section-sub">— ВЫДАН АВТОМАТИЧЕСКИ · ХРАНИТЬ ВЕЧНО —</div>
-      <div class="certificate">
-        <h3>Сертификат Лояльности</h3>
-        <div style="font-size: 14px; letter-spacing: 0.15em;">N° 4 728 391</div>
-        <div class="body">
-          <p>Настоящий сертификат подтверждает что пользователь<br>
-          с IP <b><span id="fake-ip">— · — · — · —</span></b><br>
-          посетил официальный сайт <b>SWAIN.LOVE</b> в год правления Великого Генерала.</p>
-          <p style="margin-top: 18px;">Данные внесены в реестр. Возврат невозможен.<br>
-          Лояльность: <i>проверяется</i>. Наблюдение: <i>усилено</i>.</p>
-        </div>
-        <div class="seal">★ ОДОБРЕНО ★ Я ★</div>
-      </div>
-    </section>
-
-    <!-- FINAL COMMENT -->
-    <section class="final-comment">
-      <h2>СПАСИБО ЧТО ЗАШЁЛ</h2>
-      <p>больше не возвращайся. <span class="strike">шучу</span>. возвращайся. <span class="me">Я</span> слежу.</p>
-      <p style="margin-top: 12px; font-size: 14px; color: var(--bone); opacity: 0.6;">если ты прочитал до сюда — поздравляю. <span class="me">Я</span> это запомнил. ты теперь в реестре. ждать.</p>
-    </section>
-
-    <!-- BOTTOM MARQUEE -->
-    <div class="marquee bottom">
-      <div class="marquee-inner">
-        <span>POSHOL NAHUY DEMACIA</span>
-        <span>БЕАТРИЧЕ ОДОБРЯЕТ</span>
-        <span>ОДНА РУКА — ОКУПИЛОСЬ</span>
-        <span>МИД ВЗЯТ · НАВСЕГДА</span>
-        <span>POSHOL NAHUY DEMACIA</span>
-        <span>БЕАТРИЧЕ ОДОБРЯЕТ</span>
-        <span>ОДНА РУКА — ОКУПИЛОСЬ</span>
-        <span>МИД ВЗЯТ · НАВСЕГДА</span>
-      </div>
+  <!-- CERTIFICATE -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">документ · сертификат</div>
+      <h2 class="sec-h2">ваш <em>сертификат</em><br>лояльности.</h2>
+      <p class="sec-lede">выдан автоматически. хранить вечно. возврату не подлежит.</p>
     </div>
 
-    <footer class="bottom">
-      <div>© SWAIN.LOVE · ANNO NOXII MCCXLVII · POSHOL NAHUY DEMACIA</div>
-      <div>сделано Я · хостится в чёрном омуте · возврата нет</div>
-      <div class="visitors">сегодня заходило: <b id="cnt-visitors">0</b> подданных · все учтены</div>
-      <div class="secret">
-        <a href="family.html">.</a>
+    <div class="reveal">
+      <div class="certificate">
+        <div class="certificate-h">сертификат лояльности</div>
+        <div class="certificate-no">N° 4 728 391</div>
+        <div class="certificate-body">
+          настоящий сертификат подтверждает что пользователь<br>
+          с IP <b><span id="fake-ip">— · — · — · —</span></b><br>
+          посетил официальный сайт <b>SWAIN.LOVE</b><br>
+          в год правления великого генерала.<br><br>
+          данные внесены в реестр. возврат невозможен.<br>
+          лояльность: <i>проверяется</i>. наблюдение: <i>усилено</i>.
+        </div>
+        <div class="certificate-seal">★ одобрено · я ★</div>
       </div>
-    </footer>
-  </main>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- FINAL -->
+  <div class="final reveal">
+    <h2>спасибо что зашёл</h2>
+    <p>больше не возвращайся. <span class="strike">шучу</span>. возвращайся. <span class="me">я</span> слежу.</p>
+    <p>если ты прочитал до сюда — <span class="me">я</span> это запомнил. ты теперь в реестре. ждать.</p>
+  </div>
+
+  <!-- BOTTOM TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>poshol nahuy demacia</span>
+      <span>беатриче одобряет</span>
+      <span>одна рука — окупилось</span>
+      <span>мид взят · навсегда</span>
+      <span>poshol nahuy demacia</span>
+      <span>беатриче одобряет</span>
+      <span>одна рука — окупилось</span>
+      <span>мид взят · навсегда</span>
+    </div>
+  </div>
+
+  <footer class="bottom">
+    <div>© SWAIN.LOVE · ANNO NOXII MCCXLVII · POSHOL NAHUY DEMACIA</div>
+    <div>сделано <span class="me">я</span> · хостится в чёрном омуте · возврата нет</div>
+    <div class="visitors">сегодня заходило: <b id="cnt-visitors">0</b> подданных · все учтены</div>
+    <div class="secret"><a href="family.html">.</a></div>
+  </footer>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

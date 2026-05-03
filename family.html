@@ -3,79 +3,557 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>СТРОИТСЯ · SWAIN.LOVE</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦‍⬛</text></svg>">
+<title>family.html (черновик) // СВЕЙН</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <video class="bg-video" autoplay loop muted playsinline>
-    <source src="background_1_.mp4" type="video/mp4">
-  </video>
-  <div class="bg-fallback"></div>
-  <div class="bg-overlay"></div>
 
-  <main>
-    <div class="marquee">
-      <div class="marquee-inner">
-        <span>⚠️ СТРАНИЦА В СТАДИИ ПОДГОТОВКИ · ВЕЛИКИЙ ГЕНЕРАЛ ЛИЧНО ПИШЕТ КОНТЕНТ</span>
-        <span>⏳ НАПИСАНИЕ ЗАЙМЁТ ВРЕМЯ · НЕ ТОРОПИТЕ ЕГО · ОН РАЗДРАЖАЕТСЯ</span>
-        <span>⚠️ СТРАНИЦА В СТАДИИ ПОДГОТОВКИ · ВЕЛИКИЙ ГЕНЕРАЛ ЛИЧНО ПИШЕТ КОНТЕНТ</span>
-        <span>⏳ НАПИСАНИЕ ЗАЙМЁТ ВРЕМЯ · НЕ ТОРОПИТЕ ЕГО · ОН РАЗДРАЖАЕТСЯ</span>
+<!-- cursor -->
+<div id="cur">
+  <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 3C11 3 7 6.5 7 11C7 14.5 9 16 10 17L8 26L12.5 21.5L15 24L17.5 21.5L22 26L20 17C21 16 23 14.5 23 11C23 6.5 19 3 15 3Z" fill="#c01818" opacity=".92"/>
+    <circle cx="12" cy="10" r="1.3" fill="#f2ede4"/>
+    <path d="M7 9.5L3 7.5L7 11.5" fill="#c01818"/>
+  </svg>
+</div>
+<div id="cur-dot"></div>
+
+<div class="bg"></div>
+<div class="grain"></div>
+<div class="scanlines"></div>
+<div class="vignette"></div>
+
+<main>
+
+  <!-- TOPBAR -->
+  <nav class="topbar" id="topbar">
+    <div class="left">
+      <a href="index.html" class="brand">СВЕЙН</a>
+      <a href="enemies.html" class="hide-m">Враги</a>
+      <a href="shop.html" class="hide-m">Магазин</a>
+      <a href="patchnotes.html" class="hide-m">Патчноут</a>
+      <a href="decrees.html" class="hide-m">Указы</a>
+      <a href="blog.html" class="hide-m">Блог</a>
+      <a href="friends.html" class="hide-m">Друзья</a>
+      <a href="contacts.html" class="hide-m">Контакты</a>
+      <a href="family.html" class="danger active" title="вы здесь. как вы сюда попали.">не нажимать</a>
+    </div>
+    <div class="topbar-right">НОКСУС · ПАТЧ ТЕКУЩИЙ · ПОВИНУЙСЯ</div>
+    <button class="burger" id="burger" aria-label="меню"><span></span><span></span><span></span></button>
+    <div class="mobile-menu" id="mmenu">
+      <a href="index.html">Главная</a>
+      <a href="enemies.html">Враги</a>
+      <a href="shop.html">Магазин</a>
+      <a href="patchnotes.html">Патчноут</a>
+      <a href="decrees.html">Указы</a>
+      <a href="blog.html">Блог</a>
+      <a href="friends.html">Друзья</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="family.html" class="danger active">не нажимать</a>
+    </div>
+  </nav>
+
+  <!-- WARNING -->
+  <div class="family-warning">
+    <span class="ttl">⚠ эта страница не для вас</span>
+    как вы сюда попали. кто вас пустил. эта папка служебная. у меня были <span class="strike">черновики</span> заметки. <span class="me">я</span> забыл удалить ссылку. Беатриче выясняет. наблюдение усилено. оставайтесь там где сидите. не трогайте ничего.
+    <br><br>
+    раз уж вы тут — посмотрите. но <span class="me">я</span> об этом узнаю. (<span class="whisper">уже узнал.</span>)
+  </div>
+
+  <!-- HERO -->
+  <div class="hero-wrap" style="min-height: auto;">
+    <div class="plx">
+      <div class="plx-text-bg" style="font-size: 28vw;">СЕМЬЯ</div>
+    </div>
+    <section class="hero single" style="min-height: auto; padding-top: 80px; padding-bottom: 30px;">
+      <div class="hero-left" style="margin: 0 auto;">
+        <div class="kicker">◢ файл: family.html · черновик · не для публикации</div>
+        <h1 style="font-size: clamp(56px, 11vw, 160px);">
+          моя <span class="h1-red" data-t="СЕМЬЯ" style="transform: none; display: inline-block;">семья</span>
+        </h1>
+        <p class="manifesto center" style="margin-left: auto; margin-right: auto;">
+          у меня есть семья. <span class="strike">это удивительно</span> это факт. некоторые члены — настоящие.
+          некоторые — приёмные. некоторые — <span class="me">не</span> члены вообще. подробности ниже.
+          (Беатриче в этом разделе нет — она в <a href="friends.html" style="color: var(--blood);">друзьях</a>. <span class="strike">в жёнах</span> в обеих категориях.)
+        </p>
       </div>
+    </section>
+  </div>
+
+  <!-- TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>картус ждёт</span>
+      <span>тимо · дедуля</span>
+      <span>афелий · мммм мггг</span>
+      <span>энни · не моя · уточняю</span>
+      <span>сетт · не член семьи · но постоянно</span>
+      <span>картус ждёт</span>
+      <span>тимо · дедуля</span>
+      <span>афелий · мммм мггг</span>
+    </div>
+  </div>
+
+  <!-- COUNTERS -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">статистика · семейный отдел</div>
+      <h2 class="sec-h2">положение <em>дел</em>.</h2>
+      <p class="sec-lede">данные собирает Беатриче. она следит за всеми. (включая Сетта.)</p>
     </div>
 
-    <nav class="topnav">
-      <a href="index.html" class="brand">SWAIN<span class="heart">.LOVE</span></a>
-      <div class="topnav-links">
-        <a href="index.html">главная</a>
-        <a href="enemies.html">враги народа</a>
-        <a href="shop.html">магазин</a>
-        <a href="patchnotes.html">патчноут</a>
-        <a href="decrees.html">указы</a>
-        <a href="blog.html">блог</a>
-        <a href="friends.html">друзья</a>
-        <a href="contacts.html">контакты</a>
-        <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+      <div class="tile reveal">
+        <div class="tile-stamp">не уменьшается</div>
+        <div class="tile-num" id="cnt-kartus">14</div>
+        <div class="tile-title">дней<br>картус ждёт</div>
+        <div class="tile-body">он помыл посуду. он постирал чехол для руки. <span class="me">я</span> не пришёл. <span class="me">я</span> не приду.</div>
+        <div class="tile-meta">обновлено · сегодня · 14 дней</div>
       </div>
-    </nav>
-
-    <section class="hero">
-      <div class="crown">⚠️</div>
-      <div class="pre-title">⚒️ В РАЗРАБОТКЕ ⚒️</div>
-      <h1 style="font-size: clamp(48px, 10vw, 120px);">СКОРО</h1>
-      <div class="tagline">эта страница пока не готова. <span class="me">я</span> работаю над ней. <span class="strike">не торопи</span> подожди.</div>
-    </section>
-
-    <section class="section">
-      <div class="box bone tilted" style="text-align: center;">
-        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.6;">
-          контент будет добавлен в одной из следующих итераций. до тех пор —
-          возвращайся на <a href="index.html" style="color: var(--blood);">главную</a> или
-          посмотри <a href="friends.html" style="color: var(--gold);">друзей</a>.
-        </p>
-        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.6; margin-top: 16px;">
-          (страница <a href="family.html" class="strike" style="color: var(--bone);">family.html</a> технически существует но <span class="me">я</span> её не показываю. это служебное.)
-        </p>
-        <span class="signature">Я</span>
+      <div class="tile reveal">
+        <div class="tile-stamp">тикает</div>
+        <div class="tile-num" id="cnt-deduly">47</div>
+        <div class="tile-title">раз тимо назвал<br>меня «дедулей»</div>
+        <div class="tile-body">только сегодня. он не останавливается. печенье предлагает. <span class="me">я</span> отказываюсь.</div>
+        <div class="tile-meta">+1 каждые ~5 секунд</div>
       </div>
-    </section>
-
-    <div class="marquee bottom">
-      <div class="marquee-inner">
-        <span>POSHOL NAHUY DEMACIA 🤝</span>
-        <span>СКОРО ВСЁ БУДЕТ ✦</span>
-        <span>БЕАТРИЧЕ ЖДЁТ ✦</span>
-        <span>POSHOL NAHUY DEMACIA 🤝</span>
-        <span>СКОРО ВСЁ БУДЕТ ✦</span>
-        <span>БЕАТРИЧЕ ЖДЁТ ✦</span>
+      <div class="tile reveal">
+        <div class="tile-stamp">не обнуляется</div>
+        <div class="tile-num" id="cnt-aphelios">0</div>
+        <div class="tile-title">секунд тишины<br>от афелия</div>
+        <div class="tile-body">мммммммм мггг мгггг. на фоне Сетт. <span class="me">я</span> не хочу это слышать.</div>
+        <div class="tile-meta">обнуляется при стоне</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-stamp">непрочитано</div>
+        <div class="tile-num" id="cnt-letters">247</div>
+        <div class="tile-title">писем от<br>картус</div>
+        <div class="tile-body">все одинаковые. суп остыл. суп ждёт. суп холодный. суп.</div>
+        <div class="tile-meta">читать не планирую</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-stamp">всегда</div>
+        <div class="tile-num" id="cnt-beatrice" style="font-size: 30px; padding-top: 8px;">9 999</div>
+        <div class="tile-title">визитов<br>беатриче сюда</div>
+        <div class="tile-body">она интересуется. она проверяет. она знает <span class="strike">больше</span> всё.</div>
+        <div class="tile-meta">за сегодня · приблизительно</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-stamp">не учитывается</div>
+        <div class="tile-num">∞</div>
+        <div class="tile-title">раз сетт<br>был замечен</div>
+        <div class="tile-body">с афелием. на фоне. <span class="me">я</span> не комментирую. (комментирую: НЕТ.)</div>
+        <div class="tile-meta">расследование ведётся</div>
       </div>
     </div>
+  </section>
 
-    <footer class="bottom">
-      <div>© SWAIN.LOVE · СТРАНИЦА ЕЩЁ ПИШЕТСЯ · НЕ ТОРОПИТЕ Я</div>
-    </footer>
-  </main>
+  <!-- REGISTRY TABLE -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">реестр · официальный</div>
+      <h2 class="sec-h2">кто <em>есть</em><br>и кто <em>нет</em>.</h2>
+      <p class="sec-lede">таблица составлена лично <span class="me">мной</span>. возражения не принимаются. некоторых нет в списке потому что <span class="me">я</span> так решил.</p>
+    </div>
 
-  <script src="script.js"></script>
+    <div class="reveal" style="overflow-x: auto;">
+      <table class="registry-table">
+        <thead>
+          <tr>
+            <th style="width: 22%;">имя</th>
+            <th style="width: 22%;">родство</th>
+            <th>статус</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>картус</b></td>
+            <td>жена (<span class="whisper">мужчина</span>)</td>
+            <td>ждёт. помыл посуду. суп остыл.</td>
+          </tr>
+          <tr>
+            <td><b>тимо</b></td>
+            <td>внук</td>
+            <td>дедуля. печенье. всё ещё ждёт что <span class="me">я</span> съем.</td>
+          </tr>
+          <tr>
+            <td><b>афелий</b></td>
+            <td>сын (<i>приёмный</i>)</td>
+            <td>мммммм мггг мгггггг.</td>
+          </tr>
+          <tr style="opacity: 0.55;">
+            <td><b style="color: rgba(192,24,24,0.7);">энни</b></td>
+            <td>не данных</td>
+            <td>не моя внучка. перс для хуесосов. её пиздят и правильно.</td>
+          </tr>
+          <tr>
+            <td><b>беатриче</b></td>
+            <td>всё</td>
+            <td>рядом. всегда. идеальна. больше комментариев нет.</td>
+          </tr>
+          <tr>
+            <td><b style="color: var(--blood);">сетт</b></td>
+            <td>не член семьи</td>
+            <td>на рассмотрении. он постоянно. <span class="me">я</span> не понимаю как.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAMILY CARDS -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">досье · персонально</div>
+      <h2 class="sec-h2">по <em>каждому</em><br>отдельно.</h2>
+      <p class="sec-lede">каждая карточка — мой комментарий. без купюр.</p>
+    </div>
+
+    <div class="family-grid">
+
+      <div class="fam-card reveal">
+        <div class="fam-emoji">🪦</div>
+        <div class="fam-name">картус</div>
+        <div class="fam-rel">жена</div>
+        <div class="fam-comment">
+          постирал мне чехол для руки. помыл посуду. ждёт. зову <em>его</em> «женщина» потому что у <span class="me">меня</span> <em>дела</em>. иногда пишет письма. читаю по диагонали. <span class="strike">никогда</span> редко.
+        </div>
+        <div class="fam-act">последняя активность · 20:00 · помыл посуду</div>
+      </div>
+
+      <div class="fam-card reveal">
+        <div class="fam-emoji">💣</div>
+        <div class="fam-name">тимо</div>
+        <div class="fam-rel">внук</div>
+        <div class="fam-comment">
+          дедуля, говорит он <span class="me">мне</span>. <em>дедуля.</em> <span class="me">я</span> великий генерал, какой <span class="me">я</span> тебе нахуй дедуля. предлагает скаутское печенье. <span class="me">я</span> однажды съем печенье. <em>однажды.</em>
+        </div>
+        <div class="fam-act">последняя активность · 21:14 · сказал «дедуля» 47 раз</div>
+      </div>
+
+      <div class="fam-card reveal">
+        <div class="fam-emoji">🩸</div>
+        <div class="fam-name">афелий</div>
+        <div class="fam-rel">сын · приёмный</div>
+        <div class="fam-comment">
+          <span class="me">я</span> не верю что у такого вафельного дауна родился Тимо. поэтому он приёмный. это <em>окончательно</em>. постоянно стонет. на фоне его стонов — Сетт. <span class="strike">не хочу это видеть</span> не хочу. это. видеть.
+        </div>
+        <div class="fam-act">последняя активность · 21:15 · мммммм мггг мгггг</div>
+      </div>
+
+      <div class="fam-card declined reveal">
+        <div class="fam-emoji">🧸</div>
+        <div class="fam-name">энни</div>
+        <div class="fam-rel">не является членом семьи</div>
+        <div class="fam-comment">
+          <em>не моя.</em> уточняю. <em>перс для хуесосов.</em> внучкой не считается. её пиздят. <span class="me">я</span> в курсе. <span class="me">я</span> это поощряю. без комментариев.
+        </div>
+        <div class="fam-act">последняя активность · её пиздят</div>
+      </div>
+
+      <div class="fam-card reveal" style="border-color: var(--bone);">
+        <div class="fam-emoji">🐦</div>
+        <div class="fam-name">беатриче</div>
+        <div class="fam-rel">жена · питомец · всё</div>
+        <div class="fam-comment">
+          <span class="me">моя.</span> вся целиком. на 100% <span class="me">моя</span>. лучше всех. <em>беатриче.</em> [больше ничего не комментирую, это личное]
+        </div>
+        <div class="fam-act">последняя активность · всегда рядом со мной</div>
+      </div>
+
+      <div class="fam-card reveal" style="border-color: rgba(192,24,24,0.7);">
+        <div class="fam-emoji">⚒️</div>
+        <div class="fam-name">сетт</div>
+        <div class="fam-rel">не член семьи</div>
+        <div class="fam-comment">
+          <span class="strike">просто знакомый</span> <span class="strike">друг семьи</span> <em>зять??</em> <em>зять?????</em> <span class="me">я</span> не знаю как назвать. он постоянно. с Афелием. на фоне. <span class="me">я</span> расследую. это <em>не</em> закроется добром.
+        </div>
+        <div class="fam-act">последняя активность · с афелием · опять</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TREE -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">генеалогия · упрощённая</div>
+      <h2 class="sec-h2">древо.</h2>
+      <p class="sec-lede">упрощено для понимания. подробности под расследованием.</p>
+    </div>
+
+    <div class="reveal">
+<pre class="tree">
+                       <span class="b">Я (СВЕЙН)</span>
+                  ВЕЛИКИЙ ГЕНЕРАЛ
+                          ‖
+            ┌─────────────╫─────────────┐
+            ‖                           ‖
+        <span class="b">КАРТУС</span>                       <span class="b">БЕАТРИЧЕ</span>
+        <span class="m">(жена легальная)</span>          <span class="m">(жена духовная)</span>
+            |
+       <span class="m">?? откуда дети ??</span>
+            |
+        ┌───┴────┐
+        |        |
+     <span class="b">АФЕЛИЙ</span>    [???]
+   <span class="m">(приёмный.</span>     |
+   <span class="m">не от меня.</span>    ?
+   <span class="m">точно.)</span>        |
+        |     <span class="b">ТИМО</span> <span class="m">(внук, «дедуля»)</span>
+        |        |
+        |     <span class="m">[ПОДРОБНОСТИ
+        |      РАССЛЕДУЮТСЯ]</span>
+        |
+        └→ <span class="b">СЕТТ</span> <span class="m">(постоянно. с афелием.</span>
+                <span class="m">не родственник.</span>
+                <span class="m">НО ПОСТОЯННО.)</span>
+
+
+       ╔════════════════════════════╗
+       ║ <span class="b">ЭННИ</span>                       ║
+       ║ <span class="m">не является членом семьи</span>   ║
+       ║ <span class="m">перс для хуесосов</span>          ║
+       ║ <span class="m">её пиздят и правильно</span>      ║
+       ╚════════════════════════════╝
+</pre>
+    </div>
+  </section>
+
+  <!-- TELEGRAM CHAT — твой исходный скрин -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">переписка · закреплено</div>
+      <h2 class="sec-h2">письмо от <em>семьи</em>.</h2>
+      <p class="sec-lede">оригинал. восстановлено из переписки. закреп — их рук дело. <span class="me">я</span> не закреплял.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="chat-window">
+        <div class="chat-header">
+          <div class="avatar">😬</div>
+          <div class="info">
+            <div class="name">Урод 🐶</div>
+            <div class="status">был(а) в 20:00</div>
+          </div>
+        </div>
+
+        <div class="pinned">
+          <span class="pin-ttl">📌 закреплённое сообщение</span>
+          свейн! вся семья написала тебе письмо
+        </div>
+
+        <div class="bubble theirs">
+          <span class="speaker">семья</span>
+          свейн! вся семья написала тебе письмо
+          <span class="time">20:09</span>
+        </div>
+
+        <div class="bubble theirs">
+<span class="speaker">Картус</span>Привет, любимый! Я знаю что ты меня так никогда не назовёшь потому что у тебя дела и тебе насрать, но! Но! Я помыл посуду и постирал чехол для руки (т.е. себя). Приходи!
+
+<span style="display: block; margin-top: 10px;"><b style="color: #6c8ebf;">Тимо:</b> Ооооооо!!!! А ты верховный полководец???? Я тоже в своем роде полководец!!!! Дедуля!! А будешь скаутское печенье????</span>
+
+<span style="display: block; margin-top: 10px;"><b style="color: #6c8ebf;">Энни:</b> меня пиздят</span>
+
+<span style="display: block; margin-top: 10px;"><b style="color: #6c8ebf;">Афелий:</b> мммммммммм мггг мгггг мгггггг мггггг мггггг *звуки стонов сетта на фоне*</span>
+          <span class="time">20:10 📌</span>
+        </div>
+
+        <div class="bubble mine">
+          Афелий приёмный я не верю что у такого вафельного дауна родился тимо
+          <span class="time">20:10</span>
+        </div>
+
+        <div class="chat-pin-bar">
+          Dr. Pestilentia закрепил(а) «свейн! вся семья написала тебе письмо»
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INBOX -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">inbox · последние сообщения</div>
+      <h2 class="sec-h2">непрочитано.</h2>
+      <p class="sec-lede">сводка из всех чатов. <span class="me">я</span> ничего не открывал. Беатриче сделала скрины.</p>
+    </div>
+
+    <div class="inbox reveal">
+      <div class="inbox-item">
+        <div class="inbox-dot"></div>
+        <div>
+          <div class="inbox-from">картус</div>
+          <div class="inbox-msg">«любимый суп остыл. но ждёт. уже 4-й день»</div>
+        </div>
+        <div class="inbox-time">14 мин</div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-dot"></div>
+        <div>
+          <div class="inbox-from">тимо</div>
+          <div class="inbox-msg">«дедуля? дедуля?? ДЕДУЛЯ???»</div>
+        </div>
+        <div class="inbox-time">сейчас</div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-dot"></div>
+        <div>
+          <div class="inbox-from">афелий</div>
+          <div class="inbox-msg">«ммммммм мгггггг»</div>
+        </div>
+        <div class="inbox-time">3 мин</div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-dot"></div>
+        <div>
+          <div class="inbox-from">афелий</div>
+          <div class="inbox-msg">«мгггг ммм мггггг»</div>
+        </div>
+        <div class="inbox-time">2 мин</div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-dot"></div>
+        <div>
+          <div class="inbox-from">афелий</div>
+          <div class="inbox-msg">«мммм»</div>
+        </div>
+        <div class="inbox-time">1 мин</div>
+      </div>
+      <div class="inbox-item muted">
+        <div class="inbox-dot muted"></div>
+        <div>
+          <div class="inbox-from" style="color: rgba(242,237,228,0.4);">энни <span class="strike">[не моя]</span></div>
+          <div class="inbox-msg">[сообщение скрыто. наблюдение усилено.]</div>
+        </div>
+        <div class="inbox-time" style="color: var(--bone-mute);">заблок.</div>
+      </div>
+      <div class="inbox-item">
+        <div class="inbox-dot"></div>
+        <div>
+          <div class="inbox-from">беатриче</div>
+          <div class="inbox-msg">«kar.»</div>
+        </div>
+        <div class="inbox-time">постоянно</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTIGATIONS -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">расследования · ведёт беатриче</div>
+      <h2 class="sec-h2">открытые <em>дела</em>.</h2>
+      <p class="sec-lede">пока не закрыты. пока. <span class="strike">скоро</span> когда-нибудь.</p>
+    </div>
+
+    <div class="invest-list">
+      <div class="invest reveal">
+        <span class="case-no">дело № 001</span>
+        <div class="case-q">«откуда у <span class="me">меня</span> внук, если <span class="me">я</span> не помню чтобы у <span class="me">меня</span> были дети?»</div>
+        <div class="case-meta">
+          <span><b>статус:</b> в работе</span>
+          <span><b>ведёт:</b> беатриче</span>
+          <span><b>продвижение:</b> 0%</span>
+        </div>
+      </div>
+      <div class="invest reveal">
+        <span class="case-no">дело № 002</span>
+        <div class="case-q">«кто пиздит Энни, и можно ли его поощрить»</div>
+        <div class="case-meta">
+          <span><b>статус:</b> в работе</span>
+          <span><b>ведёт:</b> беатриче</span>
+          <span><b>продвижение:</b> 84%</span>
+        </div>
+      </div>
+      <div class="invest reveal">
+        <span class="case-no">дело № 003</span>
+        <div class="case-q">«как избавиться от Сетта»</div>
+        <div class="case-meta">
+          <span><b>статус:</b> в работе</span>
+          <span><b>ведёт:</b> беатриче</span>
+          <span><b>продвижение:</b> -12% <span class="whisper">(он стал ближе)</span></span>
+        </div>
+      </div>
+      <div class="invest reveal">
+        <span class="case-no">дело № 004</span>
+        <div class="case-q">«проверить — приёмный ли Афелий на самом деле, или просто очень похож на дауна»</div>
+        <div class="case-meta">
+          <span><b>статус:</b> подтверждено · приёмный</span>
+          <span><b>ведёт:</b> беатриче</span>
+          <span><b>продвижение:</b> 100%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILY PATCHNOTE -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">патчноут · семейный · 1.0</div>
+      <h2 class="sec-h2">изменения<br>по <em>составу</em>.</h2>
+      <p class="sec-lede">баффы / нерфы вношу <span class="me">я</span>. семья согласовывает после факта.</p>
+    </div>
+
+    <div class="fam-patch reveal">
+      <div class="fam-patch-item">
+        <span class="who">🪦 картус</span>
+        <span class="change"><span class="buff">бафф:</span> научился стирать чехол быстрее. время сократилось с 3 до 2 часов.</span><br>
+        <span class="change"><span class="nerf">нерф:</span> снова ждёт <span class="me">меня</span> к ужину. в 247-й раз.</span>
+      </div>
+      <div class="fam-patch-item">
+        <span class="who">💣 тимо</span>
+        <span class="change"><span class="buff">бафф:</span> теперь говорит «дедуля» с большей частотой. +12% к проникновению через мою броню.</span><br>
+        <span class="change"><span class="nerf">нерф:</span> скаутское печенье. оно сухое. Беатриче проверила.</span>
+      </div>
+      <div class="fam-patch-item" style="border-left-color: rgba(192,24,24,0.7);">
+        <span class="who" style="color: rgba(192,24,24,0.7);">🧸 энни — не является членом семьи</span>
+        <span class="change">исправлено: перс для хуесосов. внучкой не считается.</span><br>
+        <span class="change">исправлено: на этом сайте больше не появится. <span class="strike">исправлено</span> появилась всё равно. наблюдение усилено.</span>
+      </div>
+      <div class="fam-patch-item">
+        <span class="who">🩸 афелий</span>
+        <span class="change"><span class="nerf">нерф:</span> стоны. они продолжаются. громче.</span><br>
+        <span class="change"><span class="nerf">нерф:</span> сетт. он всё ещё. <span class="buff">бафф для сетта:</span> удалён. был. теперь нет.</span>
+      </div>
+      <div class="fam-patch-item" style="border-left-color: var(--bone);">
+        <span class="who">🐦 беатриче</span>
+        <span class="change"><span class="buff">бафф:</span> все статы +∞. она идеальна. изменений не требуется. навсегда.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <div class="final reveal">
+    <h2>как ты это нашёл</h2>
+    <p>серьёзно. это служебная страница. её не должно было быть в навигации.</p>
+    <p>(но раз нашёл — <span class="me">я</span> запомнил. <span class="strike">наблюдение</span> усилено.)</p>
+  </div>
+
+  <!-- BOTTOM TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>картус ждёт</span>
+      <span>тимо · дедуля</span>
+      <span>афелий · мммм</span>
+      <span>сетт · НЕ ЧЛЕН СЕМЬИ</span>
+      <span>беатриче · вся моя</span>
+      <span>энни · не моя</span>
+      <span>картус ждёт</span>
+      <span>тимо · дедуля</span>
+    </div>
+  </div>
+
+  <footer class="bottom">
+    <div>© SWAIN.LOVE · ФАЙЛ FAMILY.HTML · ЧЕРНОВИК · НЕ ДЛЯ ПУБЛИКАЦИИ</div>
+    <div>удалить · напомнить себе · удалить · напомнить себе · напомнить · ...</div>
+  </footer>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

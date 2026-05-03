@@ -3,79 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>СТРОИТСЯ · SWAIN.LOVE</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦‍⬛</text></svg>">
+<title>ВРАГИ НАРОДА // СВЕЙН</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='80'>🐦</text></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <video class="bg-video" autoplay loop muted playsinline>
-    <source src="background_1_.mp4" type="video/mp4">
-  </video>
-  <div class="bg-fallback"></div>
-  <div class="bg-overlay"></div>
 
-  <main>
-    <div class="marquee">
-      <div class="marquee-inner">
-        <span>⚠️ СТРАНИЦА В СТАДИИ ПОДГОТОВКИ · ВЕЛИКИЙ ГЕНЕРАЛ ЛИЧНО ПИШЕТ КОНТЕНТ</span>
-        <span>⏳ НАПИСАНИЕ ЗАЙМЁТ ВРЕМЯ · НЕ ТОРОПИТЕ ЕГО · ОН РАЗДРАЖАЕТСЯ</span>
-        <span>⚠️ СТРАНИЦА В СТАДИИ ПОДГОТОВКИ · ВЕЛИКИЙ ГЕНЕРАЛ ЛИЧНО ПИШЕТ КОНТЕНТ</span>
-        <span>⏳ НАПИСАНИЕ ЗАЙМЁТ ВРЕМЯ · НЕ ТОРОПИТЕ ЕГО · ОН РАЗДРАЖАЕТСЯ</span>
+<div id="cur">
+  <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 3C11 3 7 6.5 7 11C7 14.5 9 16 10 17L8 26L12.5 21.5L15 24L17.5 21.5L22 26L20 17C21 16 23 14.5 23 11C23 6.5 19 3 15 3Z" fill="#c01818" opacity=".92"/>
+    <circle cx="12" cy="10" r="1.3" fill="#f2ede4"/>
+    <path d="M7 9.5L3 7.5L7 11.5" fill="#c01818"/>
+  </svg>
+</div>
+<div id="cur-dot"></div>
+
+<div class="bg"></div>
+<div class="grain"></div>
+<div class="scanlines"></div>
+<div class="vignette"></div>
+
+<main>
+
+  <nav class="topbar" id="topbar">
+    <div class="left">
+      <a href="index.html" class="brand">СВЕЙН</a>
+      <a href="enemies.html" class="hide-m active">Враги</a>
+      <a href="shop.html" class="hide-m">Магазин</a>
+      <a href="patchnotes.html" class="hide-m">Патчноут</a>
+      <a href="decrees.html" class="hide-m">Указы</a>
+      <a href="blog.html" class="hide-m">Блог</a>
+      <a href="friends.html" class="hide-m">Друзья</a>
+      <a href="contacts.html" class="hide-m">Контакты</a>
+      <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
+    </div>
+    <div class="topbar-right">НОКСУС · ПАТЧ ТЕКУЩИЙ · ПОВИНУЙСЯ</div>
+    <button class="burger" id="burger" aria-label="меню"><span></span><span></span><span></span></button>
+    <div class="mobile-menu" id="mmenu">
+      <a href="index.html">Главная</a>
+      <a href="enemies.html" class="active">Враги</a>
+      <a href="shop.html">Магазин</a>
+      <a href="patchnotes.html">Патчноут</a>
+      <a href="decrees.html">Указы</a>
+      <a href="blog.html">Блог</a>
+      <a href="friends.html">Друзья</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="family.html" class="danger">не нажимать</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrap" style="min-height: auto;">
+    <div class="plx">
+      <div class="plx-text-bg" style="font-size: 28vw;">ВРАГИ</div>
+    </div>
+    <section class="hero single" style="min-height: auto; padding-top: 90px; padding-bottom: 40px;">
+      <div class="hero-left" style="margin: 0 auto;">
+        <div class="kicker">◢ реестр · обновляется по мере необходимости</div>
+        <h1 style="font-size: clamp(56px, 11vw, 160px);">
+          враги <span class="h1-red" data-t="НАРОДА" style="transform: none; display: inline-block;">народа</span>
+        </h1>
+        <p class="manifesto center" style="margin-left: auto; margin-right: auto;">
+          список составлен <span class="me">мной</span> лично. обжалованию не подлежит.
+          добавление новых имён — на моё усмотрение. удаление невозможно. (Беатриче ведёт картотеку.)
+        </p>
       </div>
+    </section>
+  </div>
+
+  <!-- TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>poshol nahuy demacia</span>
+      <span>ирелия — сс класс</span>
+      <span>ле блан — копия / оригинал не установлен</span>
+      <span>ясуо — выпилен</span>
+      <span>poshol nahuy demacia</span>
+      <span>ирелия — сс класс</span>
+      <span>ле блан — копия / оригинал не установлен</span>
+      <span>ясуо — выпилен</span>
+    </div>
+  </div>
+
+  <!-- TOP TIER (S-class) -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">приоритет один · класс СС</div>
+      <h2 class="sec-h2">особо <em>опасные</em>.</h2>
+      <p class="sec-lede">эти двое в отдельной категории. при встрече — Беатриче не спрашивает разрешения.</p>
     </div>
 
-    <nav class="topnav">
-      <a href="index.html" class="brand">SWAIN<span class="heart">.LOVE</span></a>
-      <div class="topnav-links">
-        <a href="index.html">главная</a>
-        <a href="enemies.html">враги народа</a>
-        <a href="shop.html">магазин</a>
-        <a href="patchnotes.html">патчноут</a>
-        <a href="decrees.html">указы</a>
-        <a href="blog.html">блог</a>
-        <a href="friends.html">друзья</a>
-        <a href="contacts.html">контакты</a>
-        <a href="family.html" class="danger" title="не нажимать">не нажимать</a>
+    <div class="enemy-card tier-s reveal">
+      <div class="tier-stamp">КЛАСС СС · ПЕРВЫЙ ПРИОРИТЕТ</div>
+      <div class="name">ИРЕЛИЯ</div>
+      <div class="alias">псевдонимы: «капитан танцов», «тысяча клинков», «не ваше дело»</div>
+      <div class="charges">
+        обвиняется в:
+        <em>уничтожении любого матчапа на средней линии</em>,
+        <em>безостановочном дашё на рейн который нельзя предсказать</em>,
+        обладании <em>оружием которое возвращается к ней по первому крику</em>,
+        наличии <em>нечестно высокого винрейта против меня лично</em>.<br><br>
+        каждая партия с её участием заносится в отдельный реестр. реестр толстый.
       </div>
-    </nav>
-
-    <section class="hero">
-      <div class="crown">⚠️</div>
-      <div class="pre-title">⚒️ В РАЗРАБОТКЕ ⚒️</div>
-      <h1 style="font-size: clamp(48px, 10vw, 120px);">СКОРО</h1>
-      <div class="tagline">эта страница пока не готова. <span class="me">я</span> работаю над ней. <span class="strike">не торопи</span> подожди.</div>
-    </section>
-
-    <section class="section">
-      <div class="box bone tilted" style="text-align: center;">
-        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.6;">
-          контент будет добавлен в одной из следующих итераций. до тех пор —
-          возвращайся на <a href="index.html" style="color: var(--blood);">главную</a> или
-          посмотри <a href="friends.html" style="color: var(--gold);">друзей</a>.
-        </p>
-        <p style="font-family: 'Oswald', sans-serif; font-size: 18px; line-height: 1.6; margin-top: 16px;">
-          (страница <a href="family.html" class="strike" style="color: var(--bone);">family.html</a> технически существует но <span class="me">я</span> её не показываю. это служебное.)
-        </p>
-        <span class="signature">Я</span>
-      </div>
-    </section>
-
-    <div class="marquee bottom">
-      <div class="marquee-inner">
-        <span>POSHOL NAHUY DEMACIA 🤝</span>
-        <span>СКОРО ВСЁ БУДЕТ ✦</span>
-        <span>БЕАТРИЧЕ ЖДЁТ ✦</span>
-        <span>POSHOL NAHUY DEMACIA 🤝</span>
-        <span>СКОРО ВСЁ БУДЕТ ✦</span>
-        <span>БЕАТРИЧЕ ЖДЁТ ✦</span>
-      </div>
+      <div class="verdict-line"><b>приговор:</b> вечный бан в драфте. подтверждено лично <span class="me">мной</span>.</div>
     </div>
 
-    <footer class="bottom">
-      <div>© SWAIN.LOVE · СТРАНИЦА ЕЩЁ ПИШЕТСЯ · НЕ ТОРОПИТЕ Я</div>
-    </footer>
-  </main>
+    <div class="enemy-card tier-s reveal">
+      <div class="tier-stamp">КЛАСС СС · НЕЯСНЫЙ СУБЪЕКТ</div>
+      <div class="name">ЛЕ БЛАН</div>
+      <div class="alias">псевдонимы: «оригинал», «копия», «обе?», «которая из них настоящая»</div>
+      <div class="charges">
+        обвиняется в: <em>создании копий самой себя</em>, что нарушает закон о единстве личности; в <em>уходе сквозь стены</em>; в том что <em>каждая копия лжёт о том, оригинал она или нет</em>.<br><br>
+        Беатриче расследовала: установлено что <em>оба варианта</em> — настоящая Ле Блан. это вызвало философский кризис у Беатриче. она отдыхает.
+      </div>
+      <div class="verdict-line"><b>приговор:</b> уничтожить обе. на всякий случай — третью тоже.</div>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- MAIN ENEMY LIST -->
+  <section class="block shaded">
+    <div class="reveal">
+      <div class="sec-label">картотека · реестр a-я</div>
+      <h2 class="sec-h2">остальной <em>состав</em>.</h2>
+      <p class="sec-lede">в алфавитном порядке. каждый — со своим обвинением. обвинение публикуется не для них (им и так всё ясно), а для протокола.</p>
+    </div>
+
+    <div class="reveal" style="overflow-x: auto;">
+      <table class="enemy-table">
+        <thead>
+          <tr>
+            <th style="width: 14%;">№</th>
+            <th>имя</th>
+            <th>обвинение</th>
+            <th style="width: 22%;">приговор</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="head-row">
+            <td colspan="4">— класс А · вражеские чемпионы —</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 001</td>
+            <td class="name">ОРИАННА</td>
+            <td class="charge">шар. опять шар. шар. <em>что вы все носитесь с этим шаром.</em> постоянная угроза с дистанции. контроль зоны 800 единиц.</td>
+            <td class="verdict">шар изъят</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 002</td>
+            <td class="name">ГАРЕН</td>
+            <td class="charge">demacia. что ещё надо сказать. крутится. бьёт сильно. собака умнее хозяина (см. <em>сводку Беатриче</em>).</td>
+            <td class="verdict">ёбнут демонами</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 003</td>
+            <td class="name">ЛЮКС</td>
+            <td class="charge">«свет демасии». свет погашен. <em>демасии нет</em>. остался только Q-крюк который попадает.</td>
+            <td class="verdict">свет погашен</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 004</td>
+            <td class="name">МЭЛ</td>
+            <td class="charge">отражает мои <em>собственные способности</em> в меня. <em>мои.</em> в <em>меня.</em> это личное.</td>
+            <td class="verdict">отзеркалена</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 005</td>
+            <td class="name">КАССИОПЕЯ</td>
+            <td class="charge">ноги отсутствуют. ходит на хвосте. травит мою линию. <em>почему она быстрее меня без ног.</em></td>
+            <td class="verdict">обездвижена</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 006</td>
+            <td class="name">БРЭНД</td>
+            <td class="charge">поджигает всё включая <em>перья Беатриче</em>. это уже за гранью. это уже не лейн.</td>
+            <td class="verdict">потушен</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 007</td>
+            <td class="name">САЙЛАС</td>
+            <td class="charge">крадёт <em>чужие ультимейты</em>. в том числе <em>мой</em>. был случай — украл моё демоническое преображение. неприятно.</td>
+            <td class="verdict">руки в кандалы</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 008</td>
+            <td class="name">ХЕЙМЕРДИНГЕР</td>
+            <td class="charge">маленький. опасный. ставит турели. турели стреляют. <em>я</em> подхожу. <em>я</em> умираю. снова.</td>
+            <td class="verdict">турели уничтожены</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 009</td>
+            <td class="name">ЭННИ</td>
+            <td class="charge">не моя. <em>уточняю</em>. перс для хуесосов. см. <a href="family.html" style="color: var(--blood);">family.html</a>. (как вы туда попали.)</td>
+            <td class="verdict">не моя</td>
+          </tr>
+
+          <tr>
+            <td class="code">A · 010</td>
+            <td class="name">ЯСУО</td>
+            <td class="charge">ветер. дэш. флипит. <em>0/10 в каждой игре</em> и при этом он считает себя главным. см. <em>счётчик «ясуо умерло»</em> на главной.</td>
+            <td class="verdict">выпилен из игры</td>
+          </tr>
+
+          <tr class="head-row">
+            <td colspan="4">— класс B · союзники-предатели —</td>
+          </tr>
+
+          <tr>
+            <td class="code">B · 001</td>
+            <td class="name">МОЙ САППОРТ</td>
+            <td class="charge">ушёл из лейна на 3:00. не вернулся. сослался на <em>«важные дела»</em>. дела не уточнены. см. <em>счётчик секунд без саппорта</em>.</td>
+            <td class="verdict">наблюдается</td>
+          </tr>
+
+          <tr>
+            <td class="code">B · 002</td>
+            <td class="name">МОЙ ЛЕСНИК</td>
+            <td class="charge">не приходит на ганк. ганкает <em>верх</em>. верху не нужно. <em>мне</em> нужно. <em>я</em> запомнил.</td>
+            <td class="verdict">отмечен в реестре</td>
+          </tr>
+
+          <tr>
+            <td class="code">B · 003</td>
+            <td class="name">ВРАЖЕСКИЙ ЛЕСНИК</td>
+            <td class="charge">не учтён на миникарте уже 47 секунд. совпадение с пропажей моего саппорта? <em>я</em> думаю нет.</td>
+            <td class="verdict">пропал без вести</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block">
+    <div class="reveal">
+      <div class="sec-label">часто задаваемые вопросы</div>
+      <h2 class="sec-h2">по поводу <em>списка</em>.</h2>
+      <p class="sec-lede">отвечаю один раз. дальше не отвечаю.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">как попасть в список?</div>
+        <div class="tile-body">не пытайтесь. вас и так заметят. Беатриче ведёт собственный шорт-лист.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">можно ли выйти из списка?</div>
+        <div class="tile-body">нет. список окончательный. амнистия не предусмотрена. <em>я</em> не амнистирую.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">а если я играю за свейна?</div>
+        <div class="tile-body">тогда ты — <em>я</em>. в списке тебя нет. список для остальных.</div>
+      </div>
+      <div class="tile reveal">
+        <div class="tile-num" style="font-size: 24px; margin-bottom: 4px;">Q.</div>
+        <div class="tile-title">почему энни в списке но не в семье?</div>
+        <div class="tile-body">потому что <em>я</em> так сказал. см. <a href="family.html" style="color: var(--blood);">family.html</a>. подробности там. (как вы туда попали.)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM TICKER -->
+  <div class="strip">
+    <div class="strip-inner">
+      <span>14 врагов учтены</span>
+      <span>обновление списка — по моему усмотрению</span>
+      <span>амнистии нет</span>
+      <span>14 врагов учтены</span>
+      <span>обновление списка — по моему усмотрению</span>
+      <span>амнистии нет</span>
+    </div>
+  </div>
+
+  <footer class="bottom">
+    <div>© SWAIN.LOVE · РЕЕСТР ВРАГОВ · НЕ ОБСУЖДАЕТСЯ</div>
+    <div>14 имён · возможно больше · скоро добавлю</div>
+    <div class="secret"><a href="family.html">.</a></div>
+  </footer>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
